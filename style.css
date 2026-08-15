@@ -20,7 +20,7 @@ main{max-width:1050px;margin:auto;padding:8px 8px 96px}
 .win{align-items:center}.win .modal{text-align:center;border-radius:18px}#winText{font-size:42px;color:var(--gold);font-weight:950;margin:15px}
 .busy{position:fixed;right:10px;top:76px;background:#171c32;border:1px solid var(--line);border-radius:99px;padding:7px 10px;font-size:9px;z-index:50;display:none}.busy.show{display:block}
 
-.actionBanner{position:fixed;left:50%;top:88px;transform:translate(-50%,-8px);z-index:70;max-width:min(90vw,620px);background:#171c32ee;border:1px solid #7a66bd;border-radius:12px;padding:10px 14px;font-size:12px;font-weight:900;opacity:0;pointer-events:none;transition:.18s ease;text-align:center;box-shadow:0 10px 30px #0008}
+.actionBanner{min-width:220px;position:fixed;left:50%;top:88px;transform:translate(-50%,-8px);z-index:70;max-width:min(90vw,620px);background:#171c32ee;border:1px solid #7a66bd;border-radius:12px;padding:10px 14px;font-size:12px;font-weight:900;opacity:0;pointer-events:none;transition:.18s ease;text-align:center;box-shadow:0 10px 30px #0008}
 .actionBanner.show{opacity:1;transform:translate(-50%,0)}
 
 .versionBadge{
@@ -29,3 +29,15 @@ main{max-width:1050px;margin:auto;padding:8px 8px 96px}
   padding:4px 7px;font-size:8px;color:#aeb7d5;pointer-events:none
 }
 .versionBadge b{color:#f0d27e}
+
+.chainStrip{
+  position:fixed;left:50%;top:112px;transform:translateX(-50%);
+  z-index:62;width:min(94vw,720px);display:none;gap:4px;overflow-x:auto;
+  background:#090d1be8;border:1px solid #4b5884;border-radius:12px;padding:6px;
+  box-shadow:0 8px 30px #0008
+}
+.chainStrip.show{display:flex}
+.chainStrip span{
+  flex:0 0 auto;background:#252d50;border:1px solid #5b67a0;border-radius:8px;
+  padding:5px 7px;font-size:8px;font-weight:800
+}

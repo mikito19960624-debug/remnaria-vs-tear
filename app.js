@@ -1,7 +1,7 @@
 
 (() => {
 "use strict";
-const BUILD_VERSION="v1.2.0";
+const BUILD_VERSION="v1.4.0";
 
 const C = {"rina":{"name":"レムナリア－リナ","side":"rem","kind":"monster","atk":1700,"def":1200,"img":"rina.jpg","role":"初動・突破"},"fia":{"name":"レムナリア－フィア","side":"rem","kind":"monster","atk":1400,"def":1800,"img":"fia.jpg","role":"魔法罠"},"ceres":{"name":"レムナリア－セレス","side":"rem","kind":"monster","atk":1200,"def":2000,"img":"ceres.jpg","role":"墓地"},"noel":{"name":"レムナリア－ノエル","side":"rem","kind":"monster","atk":1000,"def":1500,"img":"noel.jpg","role":"ターン0"},"record":{"name":"レムナリア・レコード","side":"rem","kind":"spell","img":"record.jpg","role":"初動"},"inherit":{"name":"レムナリア・インヘリット","side":"rem","kind":"spell","img":"inherit.jpg","role":"速攻融合"},"world":{"name":"レムナリア－継承世界","side":"rem","kind":"spell","img":"world.jpg","role":"フィールド"},"recall":{"name":"レムナリア・リコール","side":"rem","kind":"spell","img":"recall.jpg","role":"蘇生"},"chronicle":{"name":"レムナリア・クロニクル","side":"rem","kind":"spell","img":"chronicle.jpg","role":"長期戦"},"reject":{"name":"レムナリア・リジェクト","side":"rem","kind":"trap","img":"reject.jpg","role":"カウンター"},"resonance":{"name":"レムナリア・レゾナンス","side":"rem","kind":"trap","img":"resonance.jpg","role":"ターン0融合"},"awake_rina":{"name":"レムナリア・アウェイク－リナ","side":"rem","kind":"fusion","atk":2800,"def":2200,"img":"awake_rina.jpg","role":"突破"},"awake_fia":{"name":"レムナリア・アウェイク－フィア","side":"rem","kind":"fusion","atk":2500,"def":2800,"img":"awake_fia.jpg","role":"魔法罠制圧"},"awake_ceres":{"name":"レムナリア・アウェイク－セレス","side":"rem","kind":"fusion","atk":2400,"def":3000,"img":"awake_ceres.jpg","role":"墓地制圧"},"awake_noel":{"name":"レムナリア・アウェイク－ノエル","side":"rem","kind":"fusion","atk":2600,"def":2000,"img":"awake_noel.jpg","role":"EX制圧"},"alka":{"name":"レムナリア・アルカ","side":"rem","kind":"fusion","atk":3200,"def":3000,"img":"alka.jpg","role":"再融合"},"vares":{"name":"レムナリア・ヴァレス","side":"rem","kind":"fusion","atk":3500,"def":2500,"img":"vares.jpg","role":"攻撃・制圧"},"eterna":{"name":"レムナリア・エテルナ","side":"rem","kind":"fusion","atk":4000,"def":4000,"img":"eterna.jpg","role":"最終融合"},"ash":{"name":"灰流うらら","side":"generic","kind":"monster","atk":0,"def":1800,"role":"誘発"},"maxx":{"name":"増殖するG","side":"generic","kind":"monster","atk":500,"def":200,"role":"誘発"},"imperm":{"name":"無限泡影","side":"generic","kind":"trap","role":"誘発"},"called":{"name":"墓穴の指名者","side":"generic","kind":"spell","role":"汎用"},"crossout":{"name":"抹殺の指名者","side":"generic","kind":"spell","role":"汎用"},"talent":{"name":"三戦の才","side":"generic","kind":"spell","role":"汎用"},"droplet":{"name":"禁じられた一滴","side":"generic","kind":"spell","role":"汎用"},"reino":{"name":"ティアラメンツ・レイノハート","side":"tear","kind":"monster","atk":1500,"def":2100,"role":"初動"},"scheiren":{"name":"ティアラメンツ・シェイレーン","side":"tear","kind":"monster","atk":1800,"def":1300,"role":"展開・墓地融合"},"havnis":{"name":"ティアラメンツ・ハゥフニス","side":"tear","kind":"monster","atk":1600,"def":1000,"role":"ターン0"},"merrli":{"name":"ティアラメンツ・メイルゥ","side":"tear","kind":"monster","atk":800,"def":2000,"role":"墓地融合"},"kelbek":{"name":"古尖兵ケルベク","side":"tear","kind":"monster","atk":1500,"def":1800,"role":"5枚墓地肥やし"},"agido":{"name":"古衛兵アギド","side":"tear","kind":"monster","atk":1500,"def":1300,"role":"5枚墓地肥やし"},"keldo":{"name":"宿神像ケルドウ","side":"tear","kind":"monster","atk":1200,"def":1600,"role":"墓地戻し"},"mudora":{"name":"剣神官ムドラ","side":"tear","kind":"monster","atk":1500,"def":1800,"role":"墓地戻し"},"herald":{"name":"朱光の宣告者","side":"tear","kind":"monster","atk":300,"def":500,"role":"手札誘発"},"tear_maxx":{"name":"増殖するG","side":"tear","kind":"monster","atk":500,"def":200,"role":"手札誘発"},"perlereino":{"name":"壱世壊＝ペルレイノ","side":"tear","kind":"spell","role":"フィールド"},"scream":{"name":"壱世壊を劈く弦声","side":"tear","kind":"spell","role":"永続"},"tear_talent":{"name":"三戦の才","side":"tear","kind":"spell","role":"汎用"},"instant":{"name":"簡易融合","side":"tear","kind":"spell","role":"融合"},"terraforming":{"name":"テラ・フォーミング","side":"tear","kind":"spell","role":"サーチ"},"sulliek":{"name":"壱世壊に奏でる哀唱","side":"tear","kind":"trap","role":"無効"},"gravekeeper":{"name":"墓守の罠","side":"tear","kind":"trap","role":"永続"},"kit":{"name":"ティアラメンツ・キトカロス","side":"tear","kind":"fusion","atk":2300,"def":1200,"role":"エンジン"},"rulk":{"name":"ティアラメンツ・ルルカロス","side":"tear","kind":"fusion","atk":3000,"def":2500,"role":"妨害"},"kaleido":{"name":"ティアラメンツ・カレイドハート","side":"tear","kind":"fusion","atk":3000,"def":3000,"role":"除去"},"dragostapelia":{"name":"捕食植物ドラゴスタペリア","side":"tear","kind":"fusion","atk":2700,"def":1900,"role":"妨害"},"zeus":{"name":"天霆號アーゼウス","side":"tear","kind":"extra","atk":3000,"def":3000,"role":"EX"},"bagooska":{"name":"No.41 泥睡魔獣バグースカ","side":"tear","kind":"extra","atk":2100,"def":2000,"role":"EX"},"redoer":{"name":"クロノダイバー・リダン","side":"tear","kind":"extra","atk":2400,"def":2000,"role":"EX"},"dweller":{"name":"深淵に潜む者","side":"tear","kind":"extra","atk":1700,"def":1400,"role":"EX"},"borreload":{"name":"ヴァレルロード・ドラゴン","side":"tear","kind":"extra","atk":3000,"def":0,"role":"EX"},"elf":{"name":"スプライト・エルフ","side":"tear","kind":"extra","atk":1400,"def":0,"role":"EX"},"sprind":{"name":"スプライト・スプリンド","side":"tear","kind":"extra","atk":1400,"def":0,"role":"EX"},"dharc":{"name":"暗影の闇霊使いダルク","side":"tear","kind":"extra","atk":1850,"def":0,"role":"EX"},"aus":{"name":"崔嵬の地霊使いアウス","side":"tear","kind":"extra","atk":1850,"def":0,"role":"EX"},"free_ex1":{"name":"自由EX枠 1","side":"generic","kind":"extra","atk":0,"def":0,"role":"自由枠"},"free_ex2":{"name":"自由EX枠 2","side":"generic","kind":"extra","atk":0,"def":0,"role":"自由枠"},"free_ex3":{"name":"自由EX枠 3","side":"generic","kind":"extra","atk":0,"def":0,"role":"自由枠"}};
 const DECKS = {"player":{"main":[["rina",3],["fia",3],["ceres",2],["noel",3],["record",3],["inherit",3],["world",3],["recall",1],["chronicle",1],["reject",1],["resonance",3],["ash",3],["maxx",3],["imperm",3],["called",2],["crossout",1],["talent",1],["droplet",1]],"extra":[["awake_rina",2],["awake_fia",2],["awake_ceres",2],["awake_noel",2],["alka",2],["vares",1],["eterna",1],["free_ex1",1],["free_ex2",1],["free_ex3",1]]},"cpu":{"main":[["reino",3],["scheiren",3],["havnis",3],["merrli",3],["kelbek",3],["agido",3],["keldo",3],["mudora",3],["herald",3],["tear_maxx",3],["perlereino",3],["scream",2],["tear_talent",2],["instant",1],["terraforming",1],["sulliek",1],["gravekeeper",1]],"extra":[["kit",2],["rulk",1],["kaleido",1],["dragostapelia",2],["zeus",1],["bagooska",1],["redoer",1],["dweller",1],["borreload",1],["elf",1],["sprind",1],["dharc",1],["aus",1]]}};
@@ -43,6 +43,7 @@ class Duel {
         cpu:{deck:[],hand:[],field:[],grave:[],banished:[],extra:[]},
       },
       once:{player:{},cpu:{}}, attacked:{player:{},cpu:{}},
+      chain:[], maxxC:{player:false,cpu:false},
       logs:[], winner:null, busy:false, playerFirst,
       stats:{playerWins:0,cpuWins:0},
     };
@@ -127,24 +128,127 @@ class Duel {
     if(this.s.lp[side]<=0)this.win(this.opp(side),"LP 0");
   }
 
-  async activate(side,label,meta,effect){
-    if(this.s.winner)return false;
-    this.log(`${side==="player"?"自分":"CPU"}：${label} 発動`);
-    let negated=false;
-    if(side==="player") negated=await this.cpuRespond({label,meta});
-    else negated=await this.playerRespond({label,meta});
-    if(negated){this.log(`${label} は無効。`);this.render();return false;}
-    await effect();
-    if(side==="cpu" && meta.spellTrap) await this.worldSpellReaction();
-    this.log(`${label} 解決。`);
-    this.render();
-    return true;
+  chainLink(side,label,meta,effect){
+    return {
+      id:`cl_${Date.now()}_${Math.random().toString(36).slice(2,7)}`,
+      side,label,meta:{...(meta||{})},effect,negated:false
+    };
   }
 
-  async playerRespond(link){
-    const side="player", z=this.s.zones.player;
+  async activate(side,label,meta,effect){
+    if(this.s.winner)return false;
+    const link=this.chainLink(side,label,meta,effect);
+    const result=await this.runChain(link);
+    return result;
+  }
+
+  async runChain(initialLink){
+    const parentChain=this.s.chain;
+    const chain=[initialLink];
+    this.s.chain=chain;
+
+    this.log(`CHAIN 1：${initialLink.side==="player"?"自分":"CPU"}《${initialLink.label}》`);
+    await this.step(`CHAIN 1：${initialLink.label}`,560);
+
+    let priority=this.opp(initialLink.side);
+    let consecutivePasses=0;
+    let guard=0;
+
+    while(consecutivePasses<2 && guard++<20){
+      const latest=chain[chain.length-1];
+      let response=null;
+
+      if(priority==="player") response=await this.playerChainResponse(latest,chain);
+      else response=await this.cpuChainResponse(latest,chain);
+
+      if(response){
+        chain.push(response);
+        consecutivePasses=0;
+        this.log(`CHAIN ${chain.length}：${response.side==="player"?"自分":"CPU"}《${response.label}》`);
+        await this.step(`CHAIN ${chain.length}：${response.label}`,520);
+        priority=this.opp(response.side);
+      }else{
+        consecutivePasses++;
+        priority=this.opp(priority);
+      }
+    }
+
+    await this.step(`CHAIN ${chain.length} → 逆順解決`,520);
+
+    for(let i=chain.length-1;i>=0;i--){
+      const link=chain[i];
+      if(link.negated){
+        this.log(`CL${i+1}《${link.label}》は無効。`);
+        await this.step(`CL${i+1}：${link.label} → 無効`,500);
+        continue;
+      }
+      this.log(`CL${i+1}《${link.label}》を解決。`);
+      await this.step(`CL${i+1}：${link.label} 解決`,500);
+      await link.effect(link);
+      if(link.side==="cpu" && link.meta.spellTrap) await this.worldSpellReaction();
+    }
+
+    const initialResolved=!initialLink.negated;
+    this.s.chain=parentChain||[];
+    this.render();
+    return initialResolved;
+  }
+
+  negateLink(target,label=""){
+    if(!target)return;
+    target.negated=true;
+    if(label)this.log(`${label}：${target.label}を無効。`);
+  }
+
+  async afterSpecialSummon(side,count=1){
+    const opp=this.opp(side);
+    if(this.s.maxxC[opp]){
+      this.draw(opp,count);
+      this.log(`${opp==="player"?"自分":"CPU"}：《増殖するG》で${count}枚ドロー。`);
+      await this.step(`増殖するG：${count}ドロー`,420);
+    }
+  }
+
+  playerQuickUsable(card){
+    const l=this.zoneOf(card.uid);
+    if(!l)return false;
+    if(l.zone==="field" && card.set)return true;
+    if(l.zone!=="hand")return false;
+    if(this.s.turnPlayer==="player")return true;
+    if(card.id==="imperm" && this.s.zones.player.field.length===0)return true;
+    return ["ash","maxx"].includes(card.id);
+  }
+
+  async playerChainResponse(target,chain){
+    const z=this.s.zones.player;
     const pool=[...z.grave,...z.banished].filter(isRem);
     const opts=[];
+
+    // Generic hand traps / quick-play cards.
+    const ash=z.hand.find(c=>c.id==="ash");
+    if(ash && (target.meta.searchesDeck||target.meta.sendsDeckToGY||target.meta.summonsFromDeck))
+      opts.push({label:"灰流うらら",kind:"ash",card:ash});
+
+    const maxx=z.hand.find(c=>c.id==="maxx");
+    if(maxx && target.side==="cpu" && target.meta.specialSummonEffect && !this.s.maxxC.player)
+      opts.push({label:"増殖するG",kind:"maxx",card:maxx});
+
+    const imperm=[...z.hand,...z.field].find(c=>c.id==="imperm"&&this.playerQuickUsable(c));
+    if(imperm && target.meta.monsterEffect)
+      opts.push({label:"無限泡影",kind:"imperm",card:imperm});
+
+    const called=[...z.hand,...z.field].find(c=>c.id==="called"&&this.playerQuickUsable(c));
+    if(called && target.meta.sourceId && target.meta.monsterEffect){
+      const gyTarget=z=>z.grave.find(c=>c.id===target.meta.sourceId);
+      if(gyTarget(this.s.zones.cpu))opts.push({label:"墓穴の指名者",kind:"called",card:called});
+    }
+
+    const cross=[...z.hand,...z.field].find(c=>c.id==="crossout"&&this.playerQuickUsable(c));
+    const mirrorId=target.meta.sourceId==="tear_maxx"?"maxx":target.meta.sourceId;
+    if(cross && mirrorId && z.deck.some(c=>c.id===mirrorId))
+      opts.push({label:"抹殺の指名者",kind:"crossout",card:cross,mirrorId});
+
+    // Remnaria.
     const eterna=z.field.find(c=>c.id==="eterna");
     const vares=z.field.find(c=>c.id==="vares");
     const alka=z.field.find(c=>c.id==="alka");
@@ -153,99 +257,202 @@ class Duel {
     const noel=z.field.find(c=>c.id==="awake_noel");
     const reject=z.field.find(c=>c.id==="reject" && c.set);
 
-    if(eterna && pool.length) opts.push({label:"エテルナ③：無効＋除外",kind:"negate",cost:true});
-    if(eterna && !this.used(side,"eterna4")) opts.push({label:"エテルナ④：手札・EXから1枚除外",kind:"eterna4"});
-    if(vares && pool.length) opts.push({label:"ヴァレス②：無効＋除外",kind:"negate",cost:true});
-    if(alka && pool.length && !this.used(side,"alkaNegate") && link.meta.monsterEffect && (alka.metadata.materialTypes||[]).includes("monster"))
-      opts.push({label:"アルカ②：モンスター効果を無効",kind:"alkaNegate",cost:false});
-    if(fia && link.meta.spellTrap && pool.length) opts.push({label:"アウェイク－フィア②：無効＋除外",kind:"negate",cost:true});
-    if(ceres && link.meta.graveEffect && pool.length) opts.push({label:"アウェイク－セレス②：無効＋除外",kind:"negate",cost:true});
-    if(noel && link.meta.extraSummonEffect && pool.length) opts.push({label:"アウェイク－ノエル②：無効",kind:"negate",cost:true});
-    if(reject) opts.push({label:"レムナリア・リジェクト：無効＋除外",kind:"reject"});
+    if(eterna && pool.length)opts.push({label:"エテルナ③：発動無効",kind:"remNegate",source:eterna});
+    if(eterna && !this.used("player","eterna4"))opts.push({label:"エテルナ④：手札・EX除外",kind:"eterna4",source:eterna});
+    if(vares && pool.length)opts.push({label:"ヴァレス②：発動無効",kind:"remNegate",source:vares});
+    if(alka && !this.used("player","alkaNegate") && target.meta.monsterEffect && (alka.metadata.materialTypes||[]).includes("monster"))
+      opts.push({label:"アルカ②：モンスター効果無効",kind:"alkaNegate",source:alka});
+    if(fia && target.meta.spellTrap && pool.length)opts.push({label:"アウェイク－フィア②",kind:"remNegate",source:fia});
+    if(ceres && target.meta.graveEffect && pool.length)opts.push({label:"アウェイク－セレス②",kind:"remNegate",source:ceres});
+    if(noel && target.meta.extraSummonEffect && pool.length)opts.push({label:"アウェイク－ノエル②",kind:"remNegate",source:noel});
+    if(reject)opts.push({label:"レムナリア・リジェクト",kind:"reject",card:reject});
+
     for(const h of z.field.filter(isHero)){
-      if(this.validHeroMaterial(h,"cpu")) opts.push({label:`${cardName(h)}②：継承融合`,kind:"heroFuse",uid:h.uid});
+      if(this.validHeroMaterial(h,"cpu"))
+        opts.push({label:`${cardName(h)}②：継承融合`,kind:"heroFuse",hero:h});
     }
-    if(!opts.length)return false;
-    opts.push({label:"何も発動しない",kind:"pass"});
-    const pick=await chooseOption(`相手：${link.label}`,opts.map(x=>x.label));
+
+    if(!opts.length)return null;
+    opts.push({label:"チェーンしない",kind:"pass"});
+
+    const pick=await chooseOption(
+      `CHAIN ${chain.length+1}？ 相手《${target.label}》`,
+      opts.map(x=>x.label)
+    );
     const o=opts[pick];
-    if(!o || o.kind==="pass")return false;
-    if(o.kind==="negate"){
-      const c=await chooseCard("デッキへ戻すレムナリア",pool);
-      if(c)this.shuffleToDeck(c.uid,"player");
-      return true;
+    if(!o||o.kind==="pass")return null;
+
+    if(o.kind==="ash"){
+      this.move(o.card.uid,"player","grave");
+      return this.chainLink("player","灰流うらら",{monsterEffect:true,sourceId:"ash",sourceUid:o.card.uid,handOrGraveMonster:true},async(link)=>{
+        this.negateLink(target,"灰流うらら");
+      });
     }
-    if(o.kind==="alkaNegate"){ this.mark("player","alkaNegate"); return true; }
+
+    if(o.kind==="maxx"){
+      this.move(o.card.uid,"player","grave");
+      return this.chainLink("player","増殖するG",{monsterEffect:true,sourceId:"maxx",sourceUid:o.card.uid,handOrGraveMonster:true},async()=>{
+        this.s.maxxC.player=true;
+      });
+    }
+
+    if(o.kind==="imperm"){
+      this.move(o.card.uid,"player","grave");
+      return this.chainLink("player","無限泡影",{spellTrap:true,sourceId:"imperm"},async()=>{
+        this.negateLink(target,"無限泡影");
+      });
+    }
+
+    if(o.kind==="called"){
+      this.move(o.card.uid,"player","grave");
+      return this.chainLink("player","墓穴の指名者",{spellTrap:true,sourceId:"called"},async()=>{
+        const tg=this.s.zones.cpu.grave.find(c=>c.id===target.meta.sourceId);
+        if(tg)this.move(tg.uid,"cpu","banished");
+        this.negateLink(target,"墓穴の指名者");
+      });
+    }
+
+    if(o.kind==="crossout"){
+      this.move(o.card.uid,"player","grave");
+      return this.chainLink("player","抹殺の指名者",{spellTrap:true,sourceId:"crossout"},async()=>{
+        const declare=this.s.zones.player.deck.find(c=>c.id===o.mirrorId);
+        if(declare)this.move(declare.uid,"player","banished");
+        this.negateLink(target,"抹殺の指名者");
+      });
+    }
+
+    if(o.kind==="remNegate"){
+      const cost=await chooseCard("デッキへ戻すレムナリア",pool);
+      if(!cost)return null;
+      this.shuffleToDeck(cost.uid,"player");
+      return this.chainLink("player",o.label,{monsterEffect:true,sourceId:o.source.id,sourceUid:o.source.uid},async()=>{
+        this.negateLink(target,o.label);
+      });
+    }
+
+    if(o.kind==="alkaNegate"){
+      this.mark("player","alkaNegate");
+      return this.chainLink("player","アルカ②",{monsterEffect:true,sourceId:"alka",sourceUid:o.source.uid},async()=>{
+        this.negateLink(target,"アルカ②");
+      });
+    }
+
     if(o.kind==="reject"){
-      this.move(reject.uid,"player","grave");
-      return true;
+      this.move(o.card.uid,"player","grave");
+      return this.chainLink("player","レムナリア・リジェクト",{spellTrap:true,sourceId:"reject"},async()=>{
+        this.negateLink(target,"リジェクト");
+      });
     }
+
     if(o.kind==="eterna4"){
       this.mark("player","eterna4");
-      const candidates=[...this.s.zones.cpu.hand,...this.s.zones.cpu.extra];
-      if(candidates.length){
-        const c=await chooseCard("エテルナ④：相手の手札・EXから除外",candidates,true);
-        if(c)this.move(c.uid,"cpu","banished");
-      }
-      return false;
+      return this.chainLink("player","エテルナ④",{monsterEffect:true,sourceId:"eterna",sourceUid:o.source.uid},async()=>{
+        const candidates=[...this.s.zones.cpu.hand,...this.s.zones.cpu.extra];
+        if(candidates.length){
+          const c=await chooseCard("エテルナ④：相手の手札・EXから除外",candidates,true);
+          if(c){const l=this.zoneOf(c.uid);this.move(c.uid,l.side,"banished");}
+        }
+      });
     }
+
     if(o.kind==="heroFuse"){
-      await this.heroFusion(this.get(o.uid),"player",true);
-      return false;
+      return this.chainLink("player",`${cardName(o.hero)}② 継承融合`,
+        {monsterEffect:true,specialSummonEffect:true,sourceId:o.hero.id,sourceUid:o.hero.uid,highImpact:true},
+        async()=>{await this.heroFusionResolve(o.hero,"player");}
+      );
     }
-    return false;
+
+    return null;
   }
 
-  async cpuRespond(link){
+  async cpuChainResponse(target,chain){
     const z=this.s.zones.cpu;
-    // Rulkallos first.
+
+    // Rulkallos.
     const rulk=z.field.find(c=>c.id==="rulk");
-    if(rulk && !this.used("cpu","rulk2") && link.meta.specialSummonEffect){
+    if(rulk && !this.used("cpu","rulk2") && target.meta.specialSummonEffect){
       this.mark("cpu","rulk2");
-      const tearCost=[...z.hand,...z.field].find(c=>isTear(c)&&c.uid!==rulk.uid);
-      if(tearCost)this.move(tearCost.uid,"cpu","grave");
-      this.log("CPU：ルルカロス②で無効。");
-      return true;
+      return this.chainLink("cpu","ルルカロス②",{monsterEffect:true,sourceId:"rulk",sourceUid:rulk.uid},async()=>{
+        this.negateLink(target,"ルルカロス");
+        const tearCost=[...z.hand,...z.field].find(c=>isTear(c)&&c.uid!==rulk.uid);
+        if(tearCost){const l=this.zoneOf(tearCost.uid);this.move(tearCost.uid,l.side,"grave");await this.onSentByEffect(tearCost,"cpu");}
+      });
     }
-    // Sulliek.
+
+    // Sulliek only targets a monster effect whose source is/was on field in this simulator.
     const sulliek=z.field.find(c=>c.id==="sulliek"&&c.set);
     const tear=z.field.find(c=>["reino","scheiren","havnis","merrli","kit","rulk"].includes(c.id));
-    if(sulliek && tear && !this.used("cpu","sulliek1") && link.meta.monsterEffect){
+    if(sulliek && tear && !this.used("cpu","sulliek1") && target.meta.monsterEffect && target.meta.sourceZone!=="hand"){
       this.mark("cpu","sulliek1");
-      this.move(tear.uid,"cpu","grave");
-      this.log("CPU：サリークでモンスター効果を無効。");
-      return true;
+      return this.chainLink("cpu","壱世壊に奏でる哀唱",{spellTrap:true,sourceId:"sulliek",sourceUid:sulliek.uid},async()=>{
+        const tl=this.zoneOf(tear.uid);if(tl){this.move(tear.uid,tl.side,"grave");await this.onSentByEffect(tear,"cpu");}
+        this.negateLink(target,"サリーク");
+      });
     }
-    // Herald.
+
+    // Herald can answer monster effects including Ash / Maxx "C".
     const herald=z.hand.find(c=>c.id==="herald");
     const fairy=z.hand.find(c=>c.uid!==herald?.uid && FAIRIES.includes(c.id));
-    if(herald&&fairy&&!this.used("cpu","herald")&&(link.meta.monsterEffect||link.meta.highImpact)){
-      this.mark("cpu","herald");
-      this.move(herald.uid,"cpu","grave");this.move(fairy.uid,"cpu","grave");
-      this.log("CPU：朱光の宣告者で無効。");
-      await this.onSentByEffect(fairy,"cpu");
-      return true;
+    if(herald&&fairy&&(target.meta.monsterEffect||target.meta.highImpact)){
+      this.move(herald.uid,"cpu","grave");
+      this.move(fairy.uid,"cpu","grave");
+      return this.chainLink("cpu","朱光の宣告者",
+        {monsterEffect:true,sourceId:"herald",sourceUid:herald.uid,sourceZone:"grave",handOrGraveMonster:true},
+        async()=>{
+          this.negateLink(target,"朱光の宣告者");
+          await this.onSentByEffect(fairy,"cpu");
+        }
+      );
     }
-    // Ishizu shuffler against grave-based effects.
-    if(link.meta.usesGrave){
+
+    // CPU Maxx "C".
+    const maxx=z.hand.find(c=>c.id==="tear_maxx");
+    if(maxx && target.side==="player" && target.meta.specialSummonEffect && !this.s.maxxC.cpu){
+      this.move(maxx.uid,"cpu","grave");
+      return this.chainLink("cpu","増殖するG",
+        {monsterEffect:true,sourceId:"tear_maxx",sourceUid:maxx.uid,sourceZone:"grave",handOrGraveMonster:true},
+        async()=>{this.s.maxxC.cpu=true;}
+      );
+    }
+
+    // Ishizu grave shuffler as a real chain link.
+    if(target.meta.usesGrave){
       const sh=z.grave.find(c=>ISHIZU_SHUFFLERS.includes(c.id));
       if(sh){
         this.move(sh.uid,"cpu","banished");
-        const targets=this.s.zones.player.grave.filter(isRem).slice(0,3);
-        for(const t of targets)this.shuffleToDeck(t.uid,"player");
-        this.log(`CPU：${cardName(sh)}で墓地リソースを戻した。`);
+        return this.chainLink("cpu",`${cardName(sh)}②`,
+          {monsterEffect:true,graveEffect:true,sourceId:sh.id,sourceUid:sh.uid},
+          async()=>{
+            const targets=this.s.zones.player.grave.filter(isRem).sort((a,b)=>this.threat(b)-this.threat(a)).slice(0,3);
+            for(const t of targets)this.shuffleToDeck(t.uid,"player");
+            this.log(`CPU：${cardName(sh)}で墓地リソースを戻した。`);
+          }
+        );
       }
     }
-    // Havnis chains but does not negate.
+
+    // Havnis: non-negating response.
     const hav=z.hand.find(c=>c.id==="havnis");
-    if(hav&&!this.used("cpu","havnis1")&&link.meta.monsterEffect){
+    if(hav && !this.used("cpu","havnis1") && target.side==="player" && target.meta.monsterEffect){
       this.mark("cpu","havnis1");
-      this.move(hav.uid,"cpu","field",{faceUp:true});
-      this.log("CPU：ハゥフニスをチェーンして特殊召喚。");
-      await this.mill("cpu",3);
+      return this.chainLink("cpu","ティアラメンツ・ハゥフニス①",
+        {monsterEffect:true,specialSummonEffect:true,sendsDeckToGY:true,sourceId:"havnis",sourceUid:hav.uid,sourceZone:"hand",highImpact:true},
+        async()=>{
+          const l=this.zoneOf(hav.uid);
+          if(l&&l.zone==="hand"){
+            this.move(hav.uid,"cpu","field",{faceUp:true});
+            await this.afterSpecialSummon("cpu",1);
+            await this.worldSummonReaction();
+            await this.cpuScreamTrigger();
+            await this.mill("cpu",3);
+          }
+        }
+      );
     }
-    return false;
+
+    return null;
   }
+
 
   async startPlayerCard(uid){
     if(this.s.busy||this.s.turnPlayer!=="player")return;
@@ -270,6 +477,7 @@ class Duel {
       if(c.id==="chronicle"&&!this.s.zones.player.field.some(x=>x.id==="chronicle"))out.push({label:"クロニクル 発動",go:()=>this.chronicle(c)});
       if(c.id==="reject")out.push({label:"セット",go:async()=>{this.move(c.uid,"player","field",{set:true});this.log("リジェクトをセット。");}});
       if(c.id==="resonance"&&this.s.zones.cpu.field.length&&!this.s.zones.player.field.length)out.push({label:"レゾナンスを手札発動",go:()=>this.resonance(c)});
+      if(["imperm","called","crossout"].includes(c.id))out.push({label:"セット",go:async()=>{this.move(c.uid,"player","field",{set:true});this.log(`${cardName(c)}をセット。`);}});
       out.push({label:"墓地へ送る",go:async()=>this.move(c.uid,"player","grave")});
     }
     if(zone==="field"){
@@ -296,7 +504,7 @@ class Duel {
   async heroOnSummon(c){
     if(!isHero(c)||c.id==="noel")return;
     const key=c.id+"1"; if(this.used("player",key))return;
-    await this.activate("player",`${cardName(c)}①`,{monsterEffect:true,highImpact:true},async()=>{
+    await this.activate("player",`${cardName(c)}①`,{monsterEffect:true,highImpact:true,searchesDeck:c.id!=="ceres",sendsDeckToGY:c.id==="ceres",sourceId:c.id,sourceUid:c.uid,sourceZone:"field"},async()=>{
       this.mark("player",key);
       if(c.id==="ceres"){
         const targets=this.s.zones.player.deck.filter(isRem);
@@ -322,23 +530,45 @@ class Duel {
 
   async heroFusion(hero,side,asResponse=false){
     const opp=this.opp(side);
-    let pool=this.secondMaterialPool(hero,side);
+    let pool;
+    if(hero.id==="noel")pool=this.s.zones[opp].field.filter(c=>c.fromExtra);
+    else if(hero.id==="ceres")pool=[...this.s.zones.player.grave,...this.s.zones.cpu.grave].filter(c=>c.uid!==hero.uid);
+    else pool=[...this.s.zones[opp].field,...this.s.zones.player.grave,...this.s.zones.cpu.grave].filter(c=>c.uid!==hero.uid);
+    if(!pool.length)return false;
+
+    const meta={
+      monsterEffect:true,specialSummonEffect:true,highImpact:true,
+      sourceId:hero.id,sourceUid:hero.uid,sourceZone:this.zoneOf(hero.uid)?.zone||"field",
+      usesGrave:pool.some(c=>this.zoneOf(c.uid)?.zone==="grave")
+    };
+    return this.activate(side,`${cardName(hero)}② 継承融合`,meta,async()=>{
+      await this.heroFusionResolve(hero,side);
+    });
+  }
+
+  async heroFusionResolve(hero,side){
+    const opp=this.opp(side);
+    let pool;
+    if(hero.id==="noel")pool=this.s.zones[opp].field.filter(c=>c.fromExtra);
+    else if(hero.id==="ceres")pool=[...this.s.zones.player.grave,...this.s.zones.cpu.grave].filter(c=>c.uid!==hero.uid);
+    else pool=[...this.s.zones[opp].field,...this.s.zones.player.grave,...this.s.zones.cpu.grave].filter(c=>c.uid!==hero.uid);
     if(!pool.length)return;
+
     const mat=await chooseCard("継承する融合素材",pool,true);if(!mat)return;
     const ex=this.s.zones[side].extra.find(c=>c.id===FUSION_MAP[hero.id]);if(!ex)return;
     const hloc=this.zoneOf(hero.uid), mloc=this.zoneOf(mat.uid);if(!hloc||!mloc)return;
-    const meta={monsterEffect:true,specialSummonEffect:true,highImpact:true,usesGrave:mloc.zone==="grave"};
-    await this.activate(side,`${cardName(hero)}② 継承融合`,meta,async()=>{
-      this.move(hero.uid,hloc.side,"banished");
-      this.move(mat.uid,mloc.side,"banished");
-      ex.metadata.materialTypes=[C[hero.id].kind,C[mat.id]?.kind||"monster"];
-      ex.metadata.opponentMaterial=mat.owner!==side;
-      this.move(ex.uid,side,"field",{faceUp:true,fromExtra:true,fusionSummoned:true});
-      this.log(`融合召喚：${cardName(ex)}`);
-      await this.onFusionSummoned(ex,side,hero,mat);
-      await this.materialTrigger(hero,side);
-    });
+
+    this.move(hero.uid,hloc.side,"banished");
+    this.move(mat.uid,mloc.side,"banished");
+    ex.metadata.materialTypes=[C[hero.id].kind,C[mat.id]?.kind||"monster"];
+    ex.metadata.opponentMaterial=mat.owner!==side;
+    this.move(ex.uid,side,"field",{faceUp:true,fromExtra:true,fusionSummoned:true});
+    this.log(`融合召喚：${cardName(ex)}`);
+    await this.afterSpecialSummon(side,1);
+    await this.onFusionSummoned(ex,side,hero,mat);
+    await this.materialTrigger(hero,side);
   }
+
 
   async materialTrigger(hero,side){
     const z=this.s.zones[side], key=hero.id+"3"; if(this.used(side,key))return;
@@ -373,7 +603,7 @@ class Duel {
   }
 
   async record(c){
-    await this.activate("player","レムナリア・レコード①",{spellTrap:true,highImpact:true},async()=>{
+    await this.activate("player","レムナリア・レコード①",{spellTrap:true,highImpact:true,searchesDeck:true,sourceId:"record",sourceUid:c.uid,sourceZone:"hand"},async()=>{
       this.move(c.uid,"player","grave");
       const t=await chooseCard("サーチするレムナリアモンスター",this.s.zones.player.deck.filter(isHero));if(t)this.move(t.uid,"player","hand");
       if(this.s.zones.player.hand.length && await confirmUI("手札を1枚墓地へ送る？")){
@@ -382,7 +612,7 @@ class Duel {
     });
   }
   async world(c){
-    await this.activate("player","レムナリア－継承世界",{spellTrap:true,highImpact:true},async()=>{
+    await this.activate("player","レムナリア－継承世界",{spellTrap:true,highImpact:true,searchesDeck:true,sourceId:"world",sourceUid:c.uid,sourceZone:"hand"},async()=>{
       this.move(c.uid,"player","field",{faceUp:true});
       const t=await chooseCard("発動時サーチ",this.s.zones.player.deck.filter(isRem));if(t)this.move(t.uid,"player","hand");
     });
@@ -394,20 +624,22 @@ class Duel {
     let pool=this.secondMaterialPool(h,"player").filter(x=>x.uid!==h.uid);
     if(!pool.length)return;
     const m=await chooseCard("継承するカード",pool,true);if(!m)return;
-    await this.activate("player","レムナリア・インヘリット①",{spellTrap:true,specialSummonEffect:true,highImpact:true,usesGrave:this.zoneOf(m.uid)?.zone==="grave"},async()=>{
+    await this.activate("player","レムナリア・インヘリット①",{spellTrap:true,specialSummonEffect:true,highImpact:true,usesGrave:this.zoneOf(m.uid)?.zone==="grave",sourceId:"inherit",sourceUid:c.uid,sourceZone:"hand"},async()=>{
       this.move(c.uid,"player","grave");
       const ex=this.s.zones.player.extra.find(x=>x.id===FUSION_MAP[h.id]);if(!ex)return;
       const hl=this.zoneOf(h.uid),ml=this.zoneOf(m.uid);this.move(h.uid,hl.side,"banished");this.move(m.uid,ml.side,"banished");
       this.move(ex.uid,"player","field",{faceUp:true,fromExtra:true,fusionSummoned:true});
+      await this.afterSpecialSummon("player",1);
       await this.materialTrigger(h,"player");
     });
   }
   async recall(c){
     const pool=[...this.s.zones.player.grave,...this.s.zones.player.banished].filter(isHero);if(!pool.length)return;
     const t=await chooseCard("特殊召喚するレムナリア",pool);if(!t)return;
-    await this.activate("player","レムナリア・リコール①",{spellTrap:true,specialSummonEffect:true,fromDeckOrGraveSpecial:true,usesGrave:true},async()=>{
+    await this.activate("player","レムナリア・リコール①",{spellTrap:true,specialSummonEffect:true,fromDeckOrGraveSpecial:true,usesGrave:true,sourceId:"recall",sourceUid:c.uid,sourceZone:"hand"},async()=>{
       this.move(c.uid,"player","grave");
       const l=this.zoneOf(t.uid);this.move(t.uid,"player","field",{faceUp:true});
+      await this.afterSpecialSummon("player",1);
       await this.heroOnSummon(t);
     });
   }
@@ -431,12 +663,14 @@ class Duel {
     if(h.id==="rina")matPool=matPool.filter(x=>["monster","fusion","extra"].includes(C[x.id]?.kind));
     if(h.id==="noel")matPool=matPool.filter(x=>x.fromExtra);
     const m=await chooseCard("相手フィールドの素材",matPool,true);if(!m)return;
-    await this.activate("player","レムナリア・レゾナンス",{spellTrap:true,specialSummonEffect:true,highImpact:true},async()=>{
+    await this.activate("player","レムナリア・レゾナンス",{spellTrap:true,specialSummonEffect:true,summonsFromDeck:true,highImpact:true,sourceId:"resonance",sourceUid:c.uid,sourceZone:"hand"},async()=>{
       this.move(c.uid,"player","grave");
       this.move(h.uid,"player","field",{faceUp:true});
+      await this.afterSpecialSummon("player",1);
       const ex=this.s.zones.player.extra.find(x=>x.id===FUSION_MAP[h.id]);if(!ex)return;
       this.move(h.uid,"player","banished");this.move(m.uid,"cpu","banished");
       this.move(ex.uid,"player","field",{faceUp:true,fromExtra:true,fusionSummoned:true});
+      await this.afterSpecialSummon("player",1);
       await this.materialTrigger(h,"player");
     });
   }
@@ -492,7 +726,7 @@ class Duel {
     if(!fus.length)return;const f=await chooseCard("レムナリア融合体",fus);if(!f)return;
     const pool=[...this.s.zones.player.field,...this.s.zones.player.grave,...this.s.zones.cpu.field,...this.s.zones.cpu.grave].filter(x=>x.uid!==c.uid&&x.uid!==f.uid);
     if(!pool.length)return;const m=await chooseCard("もう1枚の素材",pool,true);if(!m)return;
-    await this.activate("player","アルカ③ 再融合",{monsterEffect:true,specialSummonEffect:true,usesGrave:true,highImpact:true},async()=>{
+    await this.activate("player","アルカ③ 再融合",{monsterEffect:true,specialSummonEffect:true,usesGrave:true,highImpact:true,sourceId:"alka",sourceUid:c.uid,sourceZone:"grave"},async()=>{
       const fl=this.zoneOf(f.uid),ml=this.zoneOf(m.uid);this.move(f.uid,fl.side,"banished");this.move(m.uid,ml.side,"banished");
       this.move(c.uid,"player","field",{faceUp:true,fusionSummoned:true});
       c.metadata.materialTypes=["monster",C[m.id]?.kind||"monster"];
@@ -546,26 +780,179 @@ class Duel {
     if(t)this.move(t.uid,"player","hand");
   }
 
+
+  async cpuScream(){
+    const z=this.s.zones.cpu;
+    const sc=z.hand.find(c=>c.id==="scream");
+    if(!sc || z.field.some(c=>c.id==="scream")) return false;
+    await this.activate("cpu","壱世壊を劈く弦声 発動",{spellTrap:true},async()=>{
+      this.move(sc.uid,"cpu","field",{faceUp:true});
+      await this.step("CPU：スクリームを表側で発動",700);
+    });
+    return true;
+  }
+
+  async cpuScreamTrigger(){
+    const z=this.s.zones.cpu;
+    const sc=z.field.find(c=>c.id==="scream");
+    const tear=z.field.find(c=>["reino","scheiren","havnis","merrli","kit","rulk","kaleido"].includes(c.id));
+    if(!sc || !tear || this.used("cpu","scream1")) return false;
+    this.mark("cpu","scream1");
+    await this.activate("cpu","壱世壊を劈く弦声①",{spellTrap:true,highImpact:true,sendsDeckToGY:true,sourceId:"scream",sourceZone:"field"},async()=>{
+      await this.mill("cpu",3);
+    });
+    return true;
+  }
+
+  async cpuInstantFusion(){
+    const z=this.s.zones.cpu;
+    const inst=z.hand.find(c=>c.id==="instant");
+    const kit=z.extra.find(c=>c.id==="kit");
+    if(!inst || !kit || this.s.lp.cpu<=1000) return false;
+    await this.activate("cpu","簡易融合",{spellTrap:true,specialSummonEffect:true,highImpact:true,sourceId:"instant",sourceUid:inst.uid,sourceZone:"hand"},async()=>{
+      this.damage("cpu",1000);
+      this.move(inst.uid,"cpu","grave");
+      this.move(kit.uid,"cpu","field",{faceUp:true,fromExtra:true,fusionSummoned:true});
+      await this.afterSpecialSummon("cpu",1);
+      kit.metadata.instantFusion=true;
+      this.log("CPU：簡易融合でキトカロスを融合召喚扱いで特殊召喚。");
+      await this.step("CPU：簡易融合 → キトカロス",1050);
+      await this.worldSummonReaction();
+      await this.cpuScreamTrigger();
+      await this.cpuFusionOnSummon(kit);
+      await this.checkPlayerTurnZero(kit);
+    });
+    return true;
+  }
+
+  async cpuIshizuHandStarter(){
+    const z=this.s.zones.cpu;
+    const sh=z.hand.find(c=>["keldo","mudora"].includes(c.id));
+    if(!sh) return false;
+    const cost=z.hand.find(c=>c.uid!==sh.uid && FAIRIES.includes(c.id));
+    if(!cost) return false;
+
+    await this.activate("cpu",`${cardName(sh)}①`,{monsterEffect:true,specialSummonEffect:true,highImpact:true},async()=>{
+      this.move(cost.uid,"cpu","grave");
+      await this.onSentByEffect(cost,"cpu");
+      this.move(sh.uid,"cpu","field",{faceUp:true});
+      await this.afterSpecialSummon("cpu",1);
+      this.log(`CPU：${cardName(sh)}を特殊召喚。`);
+      await this.step(`CPU：${cardName(sh)} 特殊召喚`,900);
+
+      if(sh.id==="mudora"){
+        const gt=z.deck.find(c=>c.id==="gravekeeper");
+        if(gt){
+          this.move(gt.uid,"cpu","field",{faceUp:true});
+          this.log("CPU：ムドラで《墓守の罠》を表側表示で置いた。");
+          await this.step("ムドラ → 墓守の罠",750);
+        }
+      }else{
+        const gt=z.deck.find(c=>c.id==="gravekeeper");
+        if(gt){
+          this.move(gt.uid,"cpu","hand");
+          this.log("CPU：ケルドウで《墓守の罠》を手札に加えた。");
+          await this.step("ケルドウ → 墓守の罠をサーチ",700);
+        }
+      }
+    });
+    return true;
+  }
+
+  async cpuMerrliNormal(){
+    const z=this.s.zones.cpu;
+    if(this.s.normal.cpu<=0) return false;
+    const m=z.hand.find(c=>c.id==="merrli");
+    if(!m) return false;
+
+    this.s.normal.cpu--;
+    this.move(m.uid,"cpu","field",{faceUp:true});
+    this.log("CPU：ティアラメンツ・メイルゥを通常召喚。");
+    await this.step("CPU：メイルゥ通常召喚",950);
+    await this.worldSummonReaction();
+    await this.checkPlayerTurnZero(m);
+    await this.cpuScreamTrigger();
+
+    if(!this.used("cpu","merrli1")){
+      this.mark("cpu","merrli1");
+      await this.activate("cpu","メイルゥ①",{monsterEffect:true,highImpact:true,sendsDeckToGY:true,sourceId:"merrli",sourceUid:m.uid,sourceZone:"field"},async()=>{
+        await this.mill("cpu",3);
+      });
+    }
+    return true;
+  }
+
+  async cpuFallbackNormal(){
+    const z=this.s.zones.cpu;
+    if(this.s.normal.cpu<=0) return false;
+    // If Scream is face-up, any Tear normal summon can turn it into 3 mills.
+    const c=z.hand.find(x=>["havnis","scheiren"].includes(x.id));
+    if(!c) return false;
+
+    this.s.normal.cpu--;
+    this.move(c.uid,"cpu","field",{faceUp:true});
+    this.log(`CPU：${cardName(c)}を通常召喚。`);
+    await this.step(`CPU：${cardName(c)} 通常召喚`,850);
+    await this.worldSummonReaction();
+    await this.checkPlayerTurnZero(c);
+    await this.cpuScreamTrigger();
+    return true;
+  }
+
+  async cpuEndPhaseCleanup(){
+    const z=this.s.zones.cpu;
+    const instants=z.field.filter(c=>c.metadata.instantFusion);
+    for(const c of instants){
+      c.metadata.instantFusion=false;
+      this.move(c.uid,"cpu","grave");
+      this.log(`簡易融合のエンドフェイズ処理：${cardName(c)}を破壊。`);
+      await this.step(`END：${cardName(c)}を破壊`,650);
+      await this.onSentByEffect(c,"cpu");
+    }
+  }
+
   async cpuTurn(){
     if(this.s.winner||this.s.busy)return;
     this.s.busy=true;this.render();
-    if(this.s.turnPlayer!=="cpu"){this.s.busy=false;return;}
+    if(this.s.turnPlayer!=="cpu"){this.s.busy=false;this.render();return;}
+
     this.log("CPUターン開始。");
-    await sleep(300);
-    await this.cpuIshizuShuffle();
-    await this.cpuPerlereino();
-    await this.cpuReino();
-    await this.cpuScheiren();
+    await this.step("CPU TURN / MAIN PHASE",650);
+
+    let acted=false;
+
+    // Full-power Tear/Ishizu opening priorities.
+    acted=(await this.cpuScream())||acted;
+    acted=(await this.cpuIshizuHandStarter())||acted;
+    acted=(await this.cpuPerlereino())||acted;
+    acted=(await this.cpuInstantFusion())||acted;
+    acted=(await this.cpuReino())||acted;
+    acted=(await this.cpuScheiren())||acted;
+
     await this.cpuProcessTearTriggers();
-    await this.cpuKitLine();
+    acted=(await this.cpuKitLine())||acted;
     await this.cpuProcessTearTriggers();
+
+    // Backup normal summon. Merrli is a real 3-mill starter.
+    acted=(await this.cpuMerrliNormal())||acted;
+    await this.cpuProcessTearTriggers();
+
+    // If Scream is already active, even Havnis/Scheiren normal gives Scream a trigger.
+    acted=(await this.cpuFallbackNormal())||acted;
+    await this.cpuProcessTearTriggers();
+
     await this.cpuIshizuShuffle();
-    await this.cpuSetBackrow();
+    acted=(await this.cpuSetBackrow())||acted;
+
+    if(!acted){
+      this.log("CPU：この初手では実装済みの有効な初動なし。");
+      await this.step("CPU：有効な初動なし → END",900);
+    }
 
     if(this.s.turn===1){
       this.s.phase="END";
       this.log("先攻1ターン目：バトルフェイズをスキップ。");
-      await this.step("先攻1ターン目：BATTLE PHASE SKIP",1000);
+      await this.step("先攻1ターン目：BATTLE PHASE SKIP",650);
     }else{
       this.s.phase="BATTLE";
       await this.step("CPU：BATTLE PHASE",650);
@@ -573,11 +960,17 @@ class Duel {
       this.s.phase="END";
     }
 
+    await this.cpuEndPhaseCleanup();
+    await this.cpuProcessTearTriggers();
+
     if(!this.s.winner){
-      await sleep(450);
+      await sleep(300);
       this.nextTurn();
+      if(this.s.turnPlayer==="player") await this.step("YOUR TURN",900);
     }
-    this.s.busy=false;this.render();
+
+    this.s.busy=false;
+    this.render();
   }
 
   async cpuPerlereino(){
@@ -590,34 +983,52 @@ class Duel {
         p=z.deck.find(c=>c.id==="perlereino");if(p)this.move(p.uid,"cpu","hand");
       }
     }
-    if(!p||z.field.some(c=>c.id==="perlereino"))return;
-    await this.activate("cpu","壱世壊＝ペルレイノ",{spellTrap:true,highImpact:true},async()=>{
+    if(!p||z.field.some(c=>c.id==="perlereino"))return false;
+    await this.activate("cpu","壱世壊＝ペルレイノ",{spellTrap:true,highImpact:true,searchesDeck:true,sourceId:"perlereino",sourceUid:p.uid,sourceZone:"hand"},async()=>{
       this.move(p.uid,"cpu","field",{faceUp:true});
-      const t=z.deck.find(c=>c.id==="reino")||z.deck.find(c=>TEAR_GIRLS.includes(c.id));if(t)this.move(t.uid,"cpu","hand");
+      const t=z.deck.find(c=>c.id==="reino")||z.deck.find(c=>TEAR_GIRLS.includes(c.id));
+      if(t){this.move(t.uid,"cpu","hand");this.log(`ペルレイノ：${cardName(t)}をサーチ。`);}
     });
+    return true;
   }
 
   async cpuReino(){
-    const z=this.s.zones.cpu,r=z.hand.find(c=>c.id==="reino");if(!r||this.s.normal.cpu<=0)return;
+    const z=this.s.zones.cpu,r=z.hand.find(c=>c.id==="reino");if(!r||this.s.normal.cpu<=0)return false;
     this.s.normal.cpu--;this.move(r.uid,"cpu","field",{faceUp:true});
+    this.log("CPU：ティアラメンツ・レイノハートを通常召喚。");
+    await this.step("CPU：レイノハート通常召喚",950);
     await this.worldSummonReaction(); await this.checkPlayerTurnZero(r);
-    await this.activate("cpu","レイノハート①",{monsterEffect:true,highImpact:true},async()=>{
-      const t=z.deck.find(c=>c.id==="merrli")||z.deck.find(c=>TEAR_GIRLS.includes(c.id));if(t){this.move(t.uid,"cpu","grave");await this.onSentByEffect(t,"cpu");}
+    await this.cpuScreamTrigger();
+    await this.activate("cpu","レイノハート①",{monsterEffect:true,highImpact:true,sendsDeckToGY:true,sourceId:"reino",sourceUid:r.uid,sourceZone:"field"},async()=>{
+      const t=z.deck.find(c=>c.id==="merrli")||z.deck.find(c=>TEAR_GIRLS.includes(c.id));
+      if(t){this.move(t.uid,"cpu","grave");this.log(`レイノハート：${cardName(t)}を墓地へ。`);await this.onSentByEffect(t,"cpu");}
     });
+    return true;
   }
 
   async cpuScheiren(){
-    const z=this.s.zones.cpu,s=z.hand.find(c=>c.id==="scheiren");if(!s)return;
-    const d=z.hand.find(c=>c.uid!==s.uid&&c.id!=="perlereino");if(!d)return;
-    this.move(d.uid,"cpu","grave");await this.onSentByEffect(d,"cpu");
-    this.move(s.uid,"cpu","field",{faceUp:true});
-    await this.worldSummonReaction(); await this.checkPlayerTurnZero(s);
-    await this.mill("cpu",3);
+    const z=this.s.zones.cpu,s=z.hand.find(c=>c.id==="scheiren");if(!s)return false;
+    const d=z.hand.find(c=>c.uid!==s.uid && C[c.id]?.kind==="monster");if(!d)return false;
+    await this.activate("cpu","シェイレーン①",{monsterEffect:true,specialSummonEffect:true,sendsDeckToGY:true,highImpact:true,sourceId:"scheiren",sourceUid:s.uid,sourceZone:"hand"},async()=>{
+      this.move(s.uid,"cpu","field",{faceUp:true});
+      this.move(d.uid,"cpu","grave");
+      this.log(`シェイレーン：${cardName(d)}を手札から墓地へ。`);
+      await this.onSentByEffect(d,"cpu");
+      await this.step("CPU：シェイレーン特殊召喚",900);
+      await this.worldSummonReaction(); await this.checkPlayerTurnZero(s);
+      await this.cpuScreamTrigger();
+      await this.mill("cpu",3);
+    });
+    return true;
   }
 
   async mill(side,n){
     const z=this.s.zones[side], moved=[];
-    for(let i=0;i<n&&z.deck.length;i++){const c=z.deck.shift();z.grave.push(c);moved.push(c);this.log(`${cardName(c)}が墓地へ。`);}
+    for(let i=0;i<n&&z.deck.length;i++){
+      const c=z.deck.shift();z.grave.push(c);moved.push(c);
+      this.log(`${cardName(c)}が墓地へ。`);
+    }
+    if(moved.length) await this.step(`${side==="cpu"?"CPU":"YOU"}：${moved.length}枚を墓地へ`,780);
     for(const c of moved)await this.onSentByEffect(c,side);
   }
 
@@ -656,11 +1067,14 @@ class Duel {
     else second=z.grave.find(c=>c.uid!==source.uid&&isTear(c));
     if(!second)return;
     const ex=z.extra.find(c=>c.id===target);if(!ex)return;
-    await this.activate("cpu",`${cardName(source)} 墓地融合`,{graveEffect:true,specialSummonEffect:true,highImpact:true},async()=>{
+    await this.activate("cpu",`${cardName(source)} 墓地融合`,{monsterEffect:true,graveEffect:true,specialSummonEffect:true,highImpact:true,usesGrave:true,sourceId:source.id,sourceUid:source.uid,sourceZone:"grave"},async()=>{
       this.shuffleToDeck(source.uid,"cpu");this.shuffleToDeck(second.uid,"cpu");
       this.move(ex.uid,"cpu","field",{faceUp:true,fromExtra:true,fusionSummoned:true});
+      await this.afterSpecialSummon("cpu",1);
       this.log(`CPU融合召喚：${cardName(ex)}`);
+      await this.step(`CPU融合召喚：${cardName(ex)}`,1050);
       await this.worldSummonReaction();
+      await this.cpuScreamTrigger();
       await this.cpuFusionOnSummon(ex);
       await this.checkPlayerTurnZero(ex);
     });
@@ -677,21 +1091,25 @@ class Duel {
       const candidates=this.s.zones.player.field.filter(c=>!["eterna","vares"].includes(c.id));
       if(candidates.length){
         const t=candidates.sort((a,b)=>this.threat(b)-this.threat(a))[0];
-        await this.activate("cpu","カレイドハート①",{monsterEffect:true,highImpact:true},async()=>this.shuffleToDeck(t.uid,"player"));
+        await this.activate("cpu","カレイドハート①",{monsterEffect:true,highImpact:true,sourceId:"kaleido",sourceUid:ex.uid,sourceZone:"field"},async()=>this.shuffleToDeck(t.uid,"player"));
       }
     }
   }
 
   async cpuKitLine(){
-    const z=this.s.zones.cpu,kit=z.field.find(c=>c.id==="kit");if(!kit||this.used("cpu","kit2"))return;
-    const t=[...z.hand,...z.grave].find(c=>TEAR_GIRLS.includes(c.id));if(!t)return;
+    const z=this.s.zones.cpu,kit=z.field.find(c=>c.id==="kit");if(!kit||this.used("cpu","kit2"))return false;
+    const t=[...z.hand,...z.grave].find(c=>TEAR_GIRLS.includes(c.id));if(!t)return false;
     this.mark("cpu","kit2");
-    await this.activate("cpu","キトカロス②",{monsterEffect:true,specialSummonEffect:true,highImpact:true},async()=>{
+    await this.activate("cpu","キトカロス②",{monsterEffect:true,specialSummonEffect:true,highImpact:true,sourceId:"kit",sourceUid:kit.uid,sourceZone:"field"},async()=>{
       this.move(t.uid,"cpu","field",{faceUp:true});
+      await this.afterSpecialSummon("cpu",1);
+      await this.step(`キトカロス②：${cardName(t)}を特殊召喚`,850);
       await this.worldSummonReaction(); await this.checkPlayerTurnZero(t);
+      await this.cpuScreamTrigger();
       this.move(kit.uid,"cpu","grave");
       await this.onSentByEffect(kit,"cpu");
     });
+    return true;
   }
 
   async cpuIshizuShuffle(){
@@ -703,7 +1121,22 @@ class Duel {
 
   async cpuSetBackrow(){
     const z=this.s.zones.cpu;
-    const s=z.hand.find(c=>c.id==="sulliek");if(s){this.move(s.uid,"cpu","field",{set:true});this.log("CPU：サリークをセット。");}
+    let acted=false;
+    const s=z.hand.find(c=>c.id==="sulliek");
+    if(s){
+      this.move(s.uid,"cpu","field",{set:true});
+      this.log("CPU：サリークをセット。");
+      await this.step("CPU：カードを1枚セット",600);
+      acted=true;
+    }
+    const g=z.hand.find(c=>c.id==="gravekeeper");
+    if(g){
+      this.move(g.uid,"cpu","field",{set:true});
+      this.log("CPU：《墓守の罠》をセット。");
+      await this.step("CPU：カードを1枚セット",600);
+      acted=true;
+    }
+    return acted;
   }
 
   threat(c){
@@ -756,6 +1189,7 @@ class Duel {
     if(this.s.winner)return;
     this.s.turn++;this.s.turnPlayer=this.opp(this.s.turnPlayer);this.s.phase="MAIN1";
     this.s.normal[this.s.turnPlayer]=1;this.s.once[this.s.turnPlayer]={};this.s.attacked[this.s.turnPlayer]={};
+    this.s.maxxC.player=false;this.s.maxxC.cpu=false;
     this.draw(this.s.turnPlayer,1);
     this.log(`${this.s.turnPlayer==="player"?"自分":"CPU"}ターン開始。`);
     this.render();
@@ -838,6 +1272,13 @@ function renderAll(){
   renderZone("#resourceCards",s.zones.player[tab],tab,"player");
   $("#cpuLP").textContent=s.lp.cpu;$("#playerLP").textContent=s.lp.player;
   $("#turnText").textContent=`TURN ${s.turn} / ${s.turnPlayer==="player"?"YOU":"CPU"} / ${s.phase}`;
+  const cs=document.querySelector("#chainStrip");
+  if(cs){
+    cs.innerHTML=s.chain.length
+      ? s.chain.map((x,i)=>`<span>CL${i+1} ${escapeHtml(x.label)}${x.negated?" ×":""}</span>`).join("")
+      : "";
+    cs.classList.toggle("show",s.chain.length>0);
+  }
   const ver=document.querySelector("#buildVersion");
   if(ver)ver.textContent=BUILD_VERSION;
   $("#deckCount").textContent=s.zones.player.deck.length;
