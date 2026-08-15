@@ -70,3 +70,8 @@ main{max-width:1050px;margin:auto;padding:8px 8px 96px}
   .subZoneRow{grid-template-columns:minmax(0,1fr) 78px}
   .fieldSpellWrap,.fieldSpellWrap .duelSlot{width:78px}
 }
+
+.cardTextBody{white-space:pre-wrap;font-size:12px;line-height:1.75;color:#edf0ff;background:#0b1020;border:1px solid #323d64;border-radius:10px;padding:12px;margin-bottom:10px}
+
+.inheritTag{position:absolute;left:2px;right:2px;top:2px;background:#24134be8;border:1px solid #8a67d8;border-radius:5px;padding:2px;font-size:5px;line-height:1.2;color:#f3eaff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.logTools{display:flex;gap:4px}.logTools button{border:1px solid #46517a;background:#252d50;color:#fff;border-radius:6px;padding:3px 6px;font-size:7px}.versionBadge i{font-style:normal;margin-left:5px;color:#65d4a9}.versionBadge i.bad{color:#ff758e}.card.effectsNegated{filter:grayscale(.45)}
