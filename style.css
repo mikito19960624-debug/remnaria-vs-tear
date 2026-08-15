@@ -19,3 +19,6 @@ main{max-width:1050px;margin:auto;padding:8px 8px 96px}
 .start{align-items:center}.start .modal{text-align:center;border-radius:18px}.start h1{font-size:30px;margin:5px 0}.start p{color:var(--muted);font-size:11px;line-height:1.6}
 .win{align-items:center}.win .modal{text-align:center;border-radius:18px}#winText{font-size:42px;color:var(--gold);font-weight:950;margin:15px}
 .busy{position:fixed;right:10px;top:76px;background:#171c32;border:1px solid var(--line);border-radius:99px;padding:7px 10px;font-size:9px;z-index:50;display:none}.busy.show{display:block}
+
+.actionBanner{position:fixed;left:50%;top:88px;transform:translate(-50%,-8px);z-index:70;max-width:min(90vw,620px);background:#171c32ee;border:1px solid #7a66bd;border-radius:12px;padding:10px 14px;font-size:12px;font-weight:900;opacity:0;pointer-events:none;transition:.18s ease;text-align:center;box-shadow:0 10px 30px #0008}
+.actionBanner.show{opacity:1;transform:translate(-50%,0)}

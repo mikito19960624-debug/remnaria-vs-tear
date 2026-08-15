@@ -62,7 +62,23 @@ class Duel {
   }
   shuffle(a){ for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} }
   opp(side){return side==="player"?"cpu":"player";}
-  log(t){this.s.logs.unshift(t); if(this.s.logs.length>180)this.s.logs.pop(); this.renderLog();}
+  log(t){
+    this.s.logs.unshift(t);
+    if(this.s.logs.length>180)this.s.logs.pop();
+    this.renderLog();
+  }
+  async step(text="",ms=650){
+    if(text){
+      const el=document.querySelector("#actionBanner");
+      if(el){el.textContent=text;el.classList.add("show");}
+    }
+    this.render();
+    await sleep(ms);
+    if(text){
+      const el=document.querySelector("#actionBanner");
+      if(el)el.classList.remove("show");
+    }
+  }
   zoneOf(uid){
     for(const side of ["player","cpu"]) for(const zone of ["deck","hand","field","grave","banished","extra"]){
       const i=this.s.zones[side][zone].findIndex(c=>c.uid===uid);
@@ -685,11 +701,20 @@ class Duel {
   }
 
   async cpuBattle(){
+    if(this.s.turn===1){
+      this.log("先攻1ターン目のためバトルフェイズは行えない。");
+      await this.step("先攻1ターン目：BATTLE SKIP",700);
+      return;
+    }
     const z=this.s.zones.cpu,p=this.s.zones.player;
     const attackers=z.field.filter(c=>atk(c)>0).sort((a,b)=>atk(b)-atk(a));
     for(const a of attackers){
       if(this.s.winner)break;
-      if(!p.field.length){this.damage("player",atk(a));this.log(`${cardName(a)}が直接攻撃。`);continue;}
+      if(!p.field.length){
+        this.damage("player",atk(a));this.log(`${cardName(a)}が直接攻撃。`);
+        await this.step(`${cardName(a)}：直接攻撃`,620);
+        continue;
+      }
       const targets=p.field.slice().sort((x,y)=>atk(x)-atk(y));
       const t=targets.find(x=>x.id!=="eterna")||targets[0];
       const A=atk(a),D=atk(t);
@@ -697,6 +722,7 @@ class Duel {
         this.damage("player",A-D);
         if(!["vares","eterna"].includes(t.id))this.move(t.uid,"player","grave");
         this.log(`${cardName(a)}が${cardName(t)}を攻撃。`);
+        await this.step(`${cardName(a)} → ${cardName(t)}`,620);
       }else if(A<D){
         this.damage("cpu",D-A);this.move(a.uid,"cpu","grave");
       }else{this.move(a.uid,"cpu","grave");if(!["vares","eterna"].includes(t.id))this.move(t.uid,"player","grave");}
@@ -806,7 +832,7 @@ function renderAll(){
   $("#alkaBtn").disabled=!(s.zones.player.field.some(c=>AWAKE.includes(c.id))&&s.zones.player.field.some(isHero)&&s.zones.player.extra.some(c=>c.id==="alka"));
   $("#varesBtn").disabled=!(s.zones.player.field.some(c=>AWAKE.includes(c.id))&&s.zones.player.field.some(isHero)&&s.zones.player.extra.some(c=>c.id==="vares"));
   $("#eternaBtn").disabled=!(s.zones.player.field.filter(isFusion).length>=2&&s.zones.player.field.some(isHero)&&s.zones.player.extra.some(c=>c.id==="eterna"));
-  $("#battleBtn").disabled=!(s.turnPlayer==="player"&&s.phase==="MAIN1");
+  $("#battleBtn").disabled=!(s.turnPlayer==="player"&&s.phase==="MAIN1"&&s.turn>1);
   $("#endBtn").disabled=s.turnPlayer!=="player"||s.busy;
   $("#busy").classList.toggle("show",s.busy);
   game.renderLog();
@@ -827,7 +853,11 @@ window.begin=begin;
 window.newMatch=()=>{location.reload();};
 window.setTab=setTab;
 window.upper=async t=>{if(game&&!game.s.busy)await game.upper(t);game.render();};
-window.startBattle=()=>{if(game&&game.s.turnPlayer==="player"){game.s.phase="BATTLE";game.render();}};
+window.startBattle=()=>{
+  if(!game||game.s.turnPlayer!=="player")return;
+  if(game.s.turn===1){game.log("先攻1ターン目はバトルフェイズを行えない。");return;}
+  game.s.phase="BATTLE";game.render();
+};
 window.endTurn=()=>game?.endPlayerTurn();
 window.closeChoice=closeChoice;
 window.closeConfirm=closeConfirm;
