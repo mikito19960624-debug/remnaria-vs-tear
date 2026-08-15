@@ -22,3 +22,10 @@ main{max-width:1050px;margin:auto;padding:8px 8px 96px}
 
 .actionBanner{position:fixed;left:50%;top:88px;transform:translate(-50%,-8px);z-index:70;max-width:min(90vw,620px);background:#171c32ee;border:1px solid #7a66bd;border-radius:12px;padding:10px 14px;font-size:12px;font-weight:900;opacity:0;pointer-events:none;transition:.18s ease;text-align:center;box-shadow:0 10px 30px #0008}
 .actionBanner.show{opacity:1;transform:translate(-50%,0)}
+
+.versionBadge{
+  position:fixed;left:9px;top:74px;z-index:55;
+  background:#11172ce8;border:1px solid #48537c;border-radius:999px;
+  padding:4px 7px;font-size:8px;color:#aeb7d5;pointer-events:none
+}
+.versionBadge b{color:#f0d27e}
