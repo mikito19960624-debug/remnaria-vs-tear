@@ -1,0 +1,8 @@
+{
+  "name": "REMNARIA vs Full Power Tear",
+  "short_name": "REMNARIA",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#080a13",
+  "theme_color": "#080a13"
+}

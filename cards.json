@@ -1,0 +1,446 @@
+{
+  "rina": {
+    "name": "レムナリア－リナ",
+    "side": "rem",
+    "kind": "monster",
+    "atk": 1700,
+    "def": 1200,
+    "img": "rina.jpg",
+    "role": "初動・突破"
+  },
+  "fia": {
+    "name": "レムナリア－フィア",
+    "side": "rem",
+    "kind": "monster",
+    "atk": 1400,
+    "def": 1800,
+    "img": "fia.jpg",
+    "role": "魔法罠"
+  },
+  "ceres": {
+    "name": "レムナリア－セレス",
+    "side": "rem",
+    "kind": "monster",
+    "atk": 1200,
+    "def": 2000,
+    "img": "ceres.jpg",
+    "role": "墓地"
+  },
+  "noel": {
+    "name": "レムナリア－ノエル",
+    "side": "rem",
+    "kind": "monster",
+    "atk": 1000,
+    "def": 1500,
+    "img": "noel.jpg",
+    "role": "ターン0"
+  },
+  "record": {
+    "name": "レムナリア・レコード",
+    "side": "rem",
+    "kind": "spell",
+    "img": "record.jpg",
+    "role": "初動"
+  },
+  "inherit": {
+    "name": "レムナリア・インヘリット",
+    "side": "rem",
+    "kind": "spell",
+    "img": "inherit.jpg",
+    "role": "速攻融合"
+  },
+  "world": {
+    "name": "レムナリア－継承世界",
+    "side": "rem",
+    "kind": "spell",
+    "img": "world.jpg",
+    "role": "フィールド"
+  },
+  "recall": {
+    "name": "レムナリア・リコール",
+    "side": "rem",
+    "kind": "spell",
+    "img": "recall.jpg",
+    "role": "蘇生"
+  },
+  "chronicle": {
+    "name": "レムナリア・クロニクル",
+    "side": "rem",
+    "kind": "spell",
+    "img": "chronicle.jpg",
+    "role": "長期戦"
+  },
+  "reject": {
+    "name": "レムナリア・リジェクト",
+    "side": "rem",
+    "kind": "trap",
+    "img": "reject.jpg",
+    "role": "カウンター"
+  },
+  "resonance": {
+    "name": "レムナリア・レゾナンス",
+    "side": "rem",
+    "kind": "trap",
+    "img": "resonance.jpg",
+    "role": "ターン0融合"
+  },
+  "awake_rina": {
+    "name": "レムナリア・アウェイク－リナ",
+    "side": "rem",
+    "kind": "fusion",
+    "atk": 2800,
+    "def": 2200,
+    "img": "awake_rina.jpg",
+    "role": "突破"
+  },
+  "awake_fia": {
+    "name": "レムナリア・アウェイク－フィア",
+    "side": "rem",
+    "kind": "fusion",
+    "atk": 2500,
+    "def": 2800,
+    "img": "awake_fia.jpg",
+    "role": "魔法罠制圧"
+  },
+  "awake_ceres": {
+    "name": "レムナリア・アウェイク－セレス",
+    "side": "rem",
+    "kind": "fusion",
+    "atk": 2400,
+    "def": 3000,
+    "img": "awake_ceres.jpg",
+    "role": "墓地制圧"
+  },
+  "awake_noel": {
+    "name": "レムナリア・アウェイク－ノエル",
+    "side": "rem",
+    "kind": "fusion",
+    "atk": 2600,
+    "def": 2000,
+    "img": "awake_noel.jpg",
+    "role": "EX制圧"
+  },
+  "alka": {
+    "name": "レムナリア・アルカ",
+    "side": "rem",
+    "kind": "fusion",
+    "atk": 3200,
+    "def": 3000,
+    "img": "alka.jpg",
+    "role": "再融合"
+  },
+  "vares": {
+    "name": "レムナリア・ヴァレス",
+    "side": "rem",
+    "kind": "fusion",
+    "atk": 3500,
+    "def": 2500,
+    "img": "vares.jpg",
+    "role": "攻撃・制圧"
+  },
+  "eterna": {
+    "name": "レムナリア・エテルナ",
+    "side": "rem",
+    "kind": "fusion",
+    "atk": 4000,
+    "def": 4000,
+    "img": "eterna.jpg",
+    "role": "最終融合"
+  },
+  "ash": {
+    "name": "灰流うらら",
+    "side": "generic",
+    "kind": "monster",
+    "atk": 0,
+    "def": 1800,
+    "role": "誘発"
+  },
+  "maxx": {
+    "name": "増殖するG",
+    "side": "generic",
+    "kind": "monster",
+    "atk": 500,
+    "def": 200,
+    "role": "誘発"
+  },
+  "imperm": {
+    "name": "無限泡影",
+    "side": "generic",
+    "kind": "trap",
+    "role": "誘発"
+  },
+  "called": {
+    "name": "墓穴の指名者",
+    "side": "generic",
+    "kind": "spell",
+    "role": "汎用"
+  },
+  "crossout": {
+    "name": "抹殺の指名者",
+    "side": "generic",
+    "kind": "spell",
+    "role": "汎用"
+  },
+  "talent": {
+    "name": "三戦の才",
+    "side": "generic",
+    "kind": "spell",
+    "role": "汎用"
+  },
+  "droplet": {
+    "name": "禁じられた一滴",
+    "side": "generic",
+    "kind": "spell",
+    "role": "汎用"
+  },
+  "reino": {
+    "name": "ティアラメンツ・レイノハート",
+    "side": "tear",
+    "kind": "monster",
+    "atk": 1500,
+    "def": 2100,
+    "role": "初動"
+  },
+  "scheiren": {
+    "name": "ティアラメンツ・シェイレーン",
+    "side": "tear",
+    "kind": "monster",
+    "atk": 1800,
+    "def": 1300,
+    "role": "展開・墓地融合"
+  },
+  "havnis": {
+    "name": "ティアラメンツ・ハゥフニス",
+    "side": "tear",
+    "kind": "monster",
+    "atk": 1600,
+    "def": 1000,
+    "role": "ターン0"
+  },
+  "merrli": {
+    "name": "ティアラメンツ・メイルゥ",
+    "side": "tear",
+    "kind": "monster",
+    "atk": 800,
+    "def": 2000,
+    "role": "墓地融合"
+  },
+  "kelbek": {
+    "name": "古尖兵ケルベク",
+    "side": "tear",
+    "kind": "monster",
+    "atk": 1500,
+    "def": 1800,
+    "role": "5枚墓地肥やし"
+  },
+  "agido": {
+    "name": "古衛兵アギド",
+    "side": "tear",
+    "kind": "monster",
+    "atk": 1500,
+    "def": 1300,
+    "role": "5枚墓地肥やし"
+  },
+  "keldo": {
+    "name": "宿神像ケルドウ",
+    "side": "tear",
+    "kind": "monster",
+    "atk": 1200,
+    "def": 1600,
+    "role": "墓地戻し"
+  },
+  "mudora": {
+    "name": "剣神官ムドラ",
+    "side": "tear",
+    "kind": "monster",
+    "atk": 1500,
+    "def": 1800,
+    "role": "墓地戻し"
+  },
+  "herald": {
+    "name": "朱光の宣告者",
+    "side": "tear",
+    "kind": "monster",
+    "atk": 300,
+    "def": 500,
+    "role": "手札誘発"
+  },
+  "tear_maxx": {
+    "name": "増殖するG",
+    "side": "tear",
+    "kind": "monster",
+    "atk": 500,
+    "def": 200,
+    "role": "手札誘発"
+  },
+  "perlereino": {
+    "name": "壱世壊＝ペルレイノ",
+    "side": "tear",
+    "kind": "spell",
+    "role": "フィールド"
+  },
+  "scream": {
+    "name": "壱世壊を劈く弦声",
+    "side": "tear",
+    "kind": "spell",
+    "role": "永続"
+  },
+  "tear_talent": {
+    "name": "三戦の才",
+    "side": "tear",
+    "kind": "spell",
+    "role": "汎用"
+  },
+  "instant": {
+    "name": "簡易融合",
+    "side": "tear",
+    "kind": "spell",
+    "role": "融合"
+  },
+  "terraforming": {
+    "name": "テラ・フォーミング",
+    "side": "tear",
+    "kind": "spell",
+    "role": "サーチ"
+  },
+  "sulliek": {
+    "name": "壱世壊に奏でる哀唱",
+    "side": "tear",
+    "kind": "trap",
+    "role": "無効"
+  },
+  "gravekeeper": {
+    "name": "墓守の罠",
+    "side": "tear",
+    "kind": "trap",
+    "role": "永続"
+  },
+  "kit": {
+    "name": "ティアラメンツ・キトカロス",
+    "side": "tear",
+    "kind": "fusion",
+    "atk": 2300,
+    "def": 1200,
+    "role": "エンジン"
+  },
+  "rulk": {
+    "name": "ティアラメンツ・ルルカロス",
+    "side": "tear",
+    "kind": "fusion",
+    "atk": 3000,
+    "def": 2500,
+    "role": "妨害"
+  },
+  "kaleido": {
+    "name": "ティアラメンツ・カレイドハート",
+    "side": "tear",
+    "kind": "fusion",
+    "atk": 3000,
+    "def": 3000,
+    "role": "除去"
+  },
+  "dragostapelia": {
+    "name": "捕食植物ドラゴスタペリア",
+    "side": "tear",
+    "kind": "fusion",
+    "atk": 2700,
+    "def": 1900,
+    "role": "妨害"
+  },
+  "zeus": {
+    "name": "天霆號アーゼウス",
+    "side": "tear",
+    "kind": "extra",
+    "atk": 3000,
+    "def": 3000,
+    "role": "EX"
+  },
+  "bagooska": {
+    "name": "No.41 泥睡魔獣バグースカ",
+    "side": "tear",
+    "kind": "extra",
+    "atk": 2100,
+    "def": 2000,
+    "role": "EX"
+  },
+  "redoer": {
+    "name": "クロノダイバー・リダン",
+    "side": "tear",
+    "kind": "extra",
+    "atk": 2400,
+    "def": 2000,
+    "role": "EX"
+  },
+  "dweller": {
+    "name": "深淵に潜む者",
+    "side": "tear",
+    "kind": "extra",
+    "atk": 1700,
+    "def": 1400,
+    "role": "EX"
+  },
+  "borreload": {
+    "name": "ヴァレルロード・ドラゴン",
+    "side": "tear",
+    "kind": "extra",
+    "atk": 3000,
+    "def": 0,
+    "role": "EX"
+  },
+  "elf": {
+    "name": "スプライト・エルフ",
+    "side": "tear",
+    "kind": "extra",
+    "atk": 1400,
+    "def": 0,
+    "role": "EX"
+  },
+  "sprind": {
+    "name": "スプライト・スプリンド",
+    "side": "tear",
+    "kind": "extra",
+    "atk": 1400,
+    "def": 0,
+    "role": "EX"
+  },
+  "dharc": {
+    "name": "暗影の闇霊使いダルク",
+    "side": "tear",
+    "kind": "extra",
+    "atk": 1850,
+    "def": 0,
+    "role": "EX"
+  },
+  "aus": {
+    "name": "崔嵬の地霊使いアウス",
+    "side": "tear",
+    "kind": "extra",
+    "atk": 1850,
+    "def": 0,
+    "role": "EX"
+  },
+  "free_ex1": {
+    "name": "自由EX枠 1",
+    "side": "generic",
+    "kind": "extra",
+    "atk": 0,
+    "def": 0,
+    "role": "自由枠"
+  },
+  "free_ex2": {
+    "name": "自由EX枠 2",
+    "side": "generic",
+    "kind": "extra",
+    "atk": 0,
+    "def": 0,
+    "role": "自由枠"
+  },
+  "free_ex3": {
+    "name": "自由EX枠 3",
+    "side": "generic",
+    "kind": "extra",
+    "atk": 0,
+    "def": 0,
+    "role": "自由枠"
+  }
+}
