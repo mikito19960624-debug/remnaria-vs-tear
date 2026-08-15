@@ -1,7 +1,7 @@
 
 (() => {
 "use strict";
-const BUILD_VERSION="v1.4.0";
+const BUILD_VERSION="v1.5.0";
 
 const C = {"rina":{"name":"レムナリア－リナ","side":"rem","kind":"monster","atk":1700,"def":1200,"img":"rina.jpg","role":"初動・突破"},"fia":{"name":"レムナリア－フィア","side":"rem","kind":"monster","atk":1400,"def":1800,"img":"fia.jpg","role":"魔法罠"},"ceres":{"name":"レムナリア－セレス","side":"rem","kind":"monster","atk":1200,"def":2000,"img":"ceres.jpg","role":"墓地"},"noel":{"name":"レムナリア－ノエル","side":"rem","kind":"monster","atk":1000,"def":1500,"img":"noel.jpg","role":"ターン0"},"record":{"name":"レムナリア・レコード","side":"rem","kind":"spell","img":"record.jpg","role":"初動"},"inherit":{"name":"レムナリア・インヘリット","side":"rem","kind":"spell","img":"inherit.jpg","role":"速攻融合"},"world":{"name":"レムナリア－継承世界","side":"rem","kind":"spell","img":"world.jpg","role":"フィールド"},"recall":{"name":"レムナリア・リコール","side":"rem","kind":"spell","img":"recall.jpg","role":"蘇生"},"chronicle":{"name":"レムナリア・クロニクル","side":"rem","kind":"spell","img":"chronicle.jpg","role":"長期戦"},"reject":{"name":"レムナリア・リジェクト","side":"rem","kind":"trap","img":"reject.jpg","role":"カウンター"},"resonance":{"name":"レムナリア・レゾナンス","side":"rem","kind":"trap","img":"resonance.jpg","role":"ターン0融合"},"awake_rina":{"name":"レムナリア・アウェイク－リナ","side":"rem","kind":"fusion","atk":2800,"def":2200,"img":"awake_rina.jpg","role":"突破"},"awake_fia":{"name":"レムナリア・アウェイク－フィア","side":"rem","kind":"fusion","atk":2500,"def":2800,"img":"awake_fia.jpg","role":"魔法罠制圧"},"awake_ceres":{"name":"レムナリア・アウェイク－セレス","side":"rem","kind":"fusion","atk":2400,"def":3000,"img":"awake_ceres.jpg","role":"墓地制圧"},"awake_noel":{"name":"レムナリア・アウェイク－ノエル","side":"rem","kind":"fusion","atk":2600,"def":2000,"img":"awake_noel.jpg","role":"EX制圧"},"alka":{"name":"レムナリア・アルカ","side":"rem","kind":"fusion","atk":3200,"def":3000,"img":"alka.jpg","role":"再融合"},"vares":{"name":"レムナリア・ヴァレス","side":"rem","kind":"fusion","atk":3500,"def":2500,"img":"vares.jpg","role":"攻撃・制圧"},"eterna":{"name":"レムナリア・エテルナ","side":"rem","kind":"fusion","atk":4000,"def":4000,"img":"eterna.jpg","role":"最終融合"},"ash":{"name":"灰流うらら","side":"generic","kind":"monster","atk":0,"def":1800,"role":"誘発"},"maxx":{"name":"増殖するG","side":"generic","kind":"monster","atk":500,"def":200,"role":"誘発"},"imperm":{"name":"無限泡影","side":"generic","kind":"trap","role":"誘発"},"called":{"name":"墓穴の指名者","side":"generic","kind":"spell","role":"汎用"},"crossout":{"name":"抹殺の指名者","side":"generic","kind":"spell","role":"汎用"},"talent":{"name":"三戦の才","side":"generic","kind":"spell","role":"汎用"},"droplet":{"name":"禁じられた一滴","side":"generic","kind":"spell","role":"汎用"},"reino":{"name":"ティアラメンツ・レイノハート","side":"tear","kind":"monster","atk":1500,"def":2100,"role":"初動"},"scheiren":{"name":"ティアラメンツ・シェイレーン","side":"tear","kind":"monster","atk":1800,"def":1300,"role":"展開・墓地融合"},"havnis":{"name":"ティアラメンツ・ハゥフニス","side":"tear","kind":"monster","atk":1600,"def":1000,"role":"ターン0"},"merrli":{"name":"ティアラメンツ・メイルゥ","side":"tear","kind":"monster","atk":800,"def":2000,"role":"墓地融合"},"kelbek":{"name":"古尖兵ケルベク","side":"tear","kind":"monster","atk":1500,"def":1800,"role":"5枚墓地肥やし"},"agido":{"name":"古衛兵アギド","side":"tear","kind":"monster","atk":1500,"def":1300,"role":"5枚墓地肥やし"},"keldo":{"name":"宿神像ケルドウ","side":"tear","kind":"monster","atk":1200,"def":1600,"role":"墓地戻し"},"mudora":{"name":"剣神官ムドラ","side":"tear","kind":"monster","atk":1500,"def":1800,"role":"墓地戻し"},"herald":{"name":"朱光の宣告者","side":"tear","kind":"monster","atk":300,"def":500,"role":"手札誘発"},"tear_maxx":{"name":"増殖するG","side":"tear","kind":"monster","atk":500,"def":200,"role":"手札誘発"},"perlereino":{"name":"壱世壊＝ペルレイノ","side":"tear","kind":"spell","role":"フィールド"},"scream":{"name":"壱世壊を劈く弦声","side":"tear","kind":"spell","role":"永続"},"tear_talent":{"name":"三戦の才","side":"tear","kind":"spell","role":"汎用"},"instant":{"name":"簡易融合","side":"tear","kind":"spell","role":"融合"},"terraforming":{"name":"テラ・フォーミング","side":"tear","kind":"spell","role":"サーチ"},"sulliek":{"name":"壱世壊に奏でる哀唱","side":"tear","kind":"trap","role":"無効"},"gravekeeper":{"name":"墓守の罠","side":"tear","kind":"trap","role":"永続"},"kit":{"name":"ティアラメンツ・キトカロス","side":"tear","kind":"fusion","atk":2300,"def":1200,"role":"エンジン"},"rulk":{"name":"ティアラメンツ・ルルカロス","side":"tear","kind":"fusion","atk":3000,"def":2500,"role":"妨害"},"kaleido":{"name":"ティアラメンツ・カレイドハート","side":"tear","kind":"fusion","atk":3000,"def":3000,"role":"除去"},"dragostapelia":{"name":"捕食植物ドラゴスタペリア","side":"tear","kind":"fusion","atk":2700,"def":1900,"role":"妨害"},"zeus":{"name":"天霆號アーゼウス","side":"tear","kind":"extra","atk":3000,"def":3000,"role":"EX"},"bagooska":{"name":"No.41 泥睡魔獣バグースカ","side":"tear","kind":"extra","atk":2100,"def":2000,"role":"EX"},"redoer":{"name":"クロノダイバー・リダン","side":"tear","kind":"extra","atk":2400,"def":2000,"role":"EX"},"dweller":{"name":"深淵に潜む者","side":"tear","kind":"extra","atk":1700,"def":1400,"role":"EX"},"borreload":{"name":"ヴァレルロード・ドラゴン","side":"tear","kind":"extra","atk":3000,"def":0,"role":"EX"},"elf":{"name":"スプライト・エルフ","side":"tear","kind":"extra","atk":1400,"def":0,"role":"EX"},"sprind":{"name":"スプライト・スプリンド","side":"tear","kind":"extra","atk":1400,"def":0,"role":"EX"},"dharc":{"name":"暗影の闇霊使いダルク","side":"tear","kind":"extra","atk":1850,"def":0,"role":"EX"},"aus":{"name":"崔嵬の地霊使いアウス","side":"tear","kind":"extra","atk":1850,"def":0,"role":"EX"},"free_ex1":{"name":"自由EX枠 1","side":"generic","kind":"extra","atk":0,"def":0,"role":"自由枠"},"free_ex2":{"name":"自由EX枠 2","side":"generic","kind":"extra","atk":0,"def":0,"role":"自由枠"},"free_ex3":{"name":"自由EX枠 3","side":"generic","kind":"extra","atk":0,"def":0,"role":"自由枠"}};
 const DECKS = {"player":{"main":[["rina",3],["fia",3],["ceres",2],["noel",3],["record",3],["inherit",3],["world",3],["recall",1],["chronicle",1],["reject",1],["resonance",3],["ash",3],["maxx",3],["imperm",3],["called",2],["crossout",1],["talent",1],["droplet",1]],"extra":[["awake_rina",2],["awake_fia",2],["awake_ceres",2],["awake_noel",2],["alka",2],["vares",1],["eterna",1],["free_ex1",1],["free_ex2",1],["free_ex3",1]]},"cpu":{"main":[["reino",3],["scheiren",3],["havnis",3],["merrli",3],["kelbek",3],["agido",3],["keldo",3],["mudora",3],["herald",3],["tear_maxx",3],["perlereino",3],["scream",2],["tear_talent",2],["instant",1],["terraforming",1],["sulliek",1],["gravekeeper",1]],"extra":[["kit",2],["rulk",1],["kaleido",1],["dragostapelia",2],["zeus",1],["bagooska",1],["redoer",1],["dweller",1],["borreload",1],["elf",1],["sprind",1],["dharc",1],["aus",1]]}};
@@ -27,11 +27,28 @@ function makeCard(id, owner){
   return {uid:uidSeq++, id, owner, controller:owner, faceUp:false, set:false, fromExtra:false, fusionSummoned:false, metadata:{}};
 }
 function cardName(c){ return C[c.id]?.name || c.id; }
+function kindLabel(c){
+  const k=C[c.id]?.kind;
+  if(k==="monster")return "モンスター";
+  if(k==="fusion")return "融合モンスター";
+  if(k==="spell")return "魔法";
+  if(k==="trap")return "罠";
+  return "カード";
+}
 function atk(c){ return C[c.id]?.atk || 0; }
 function isRem(c){ return REM.has(c.id); }
 function isHero(c){ return HERO.includes(c.id); }
 function isFusion(c){ return C[c.id]?.kind==="fusion"; }
 function isTear(c){ return C[c.id]?.side==="tear"; }
+function isMonsterCard(c){
+  return ["monster","fusion","extra"].includes(C[c.id]?.kind);
+}
+function isSpellTrapCard(c){
+  return ["spell","trap"].includes(C[c.id]?.kind);
+}
+function isFieldSpell(c){
+  return ["world","perlereino"].includes(c.id);
+}
 
 class Duel {
   constructor(playerFirst=true){
@@ -44,6 +61,7 @@ class Duel {
       },
       once:{player:{},cpu:{}}, attacked:{player:{},cpu:{}},
       chain:[], maxxC:{player:false,cpu:false},
+      resolvingChain:false, postChainQueue:[],
       logs:[], winner:null, busy:false, playerFirst,
       stats:{playerWins:0,cpuWins:0},
     };
@@ -89,16 +107,98 @@ class Duel {
     return null;
   }
   get(uid){const l=this.zoneOf(uid);return l?this.s.zones[l.side][l.zone][l.index]:null;}
+
+  fieldMonsters(side){
+    return this.s.zones[side].field.filter(isMonsterCard);
+  }
+  fieldBackrow(side){
+    return this.s.zones[side].field.filter(c=>isSpellTrapCard(c)&&!isFieldSpell(c));
+  }
+  fieldSpell(side){
+    return this.s.zones[side].field.find(isFieldSpell)||null;
+  }
+  monsterZoneFree(side,n=1){
+    return this.fieldMonsters(side).length+n<=5;
+  }
+  backrowZoneFree(side,n=1){
+    return this.fieldBackrow(side).length+n<=5;
+  }
+
+  validateUniqueState(){
+    const priority=["field","hand","grave","banished","extra","deck"];
+    const seen=new Set();
+    let repaired=0;
+    for(const side of ["player","cpu"]){
+      for(const zone of priority){
+        const arr=this.s.zones[side][zone];
+        for(let i=arr.length-1;i>=0;i--){
+          const uid=arr[i]?.uid;
+          if(uid==null || seen.has(uid)){
+            arr.splice(i,1);
+            repaired++;
+          }else{
+            seen.add(uid);
+          }
+        }
+      }
+    }
+    if(repaired){
+      this.log(`SYSTEM GUARD：重複カード${repaired}件を修復。`);
+    }
+    return repaired;
+  }
+
+  deferAfterChain(key,fn){
+    if(!this.s.resolvingChain)return false;
+    if(!this.s.postChainQueue.some(x=>x.key===key)){
+      this.s.postChainQueue.push({key,fn});
+    }
+    return true;
+  }
+
+  async flushPostChain(){
+    let guard=0;
+    while(this.s.postChainQueue.length && guard++<20){
+      const item=this.s.postChainQueue.shift();
+      await item.fn();
+    }
+  }
+
   move(uid,toSide,toZone,opts={}){
     const l=this.zoneOf(uid); if(!l)return null;
-    const [c]=this.s.zones[l.side][l.zone].splice(l.index,1);
-    c.controller=toSide;
-    if("faceUp" in opts)c.faceUp=opts.faceUp;
-    if("set" in opts)c.set=opts.set;
-    if("fromExtra" in opts)c.fromExtra=opts.fromExtra;
-    if("fusionSummoned" in opts)c.fusionSummoned=opts.fusionSummoned;
-    this.s.zones[toSide][toZone].push(c);
-    return c;
+    const c=this.s.zones[l.side][l.zone][l.index];
+
+    if(toZone==="field"){
+      if(isMonsterCard(c)){
+        const alreadySame = l.side===toSide && l.zone==="field" && isMonsterCard(c);
+        if(!alreadySame && !this.monsterZoneFree(toSide,1)){
+          this.log(`SYSTEM GUARD：${cardName(c)}はモンスターゾーンが5枠埋まっているため場に出せない。`);
+          return null;
+        }
+      }else if(isFieldSpell(c)){
+        const oldField=this.fieldSpell(toSide);
+        if(oldField && oldField.uid!==uid){
+          this.move(oldField.uid,toSide,"grave",{faceUp:true,set:false});
+          this.log(`フィールド魔法を張り替え：${cardName(oldField)}を墓地へ。`);
+        }
+      }else if(isSpellTrapCard(c)){
+        const alreadySame = l.side===toSide && l.zone==="field" && isSpellTrapCard(c) && !isFieldSpell(c);
+        if(!alreadySame && !this.backrowZoneFree(toSide,1)){
+          this.log(`SYSTEM GUARD：魔法・罠ゾーンが5枠埋まっているため${cardName(c)}を置けない。`);
+          return null;
+        }
+      }
+    }
+
+    const [moved]=this.s.zones[l.side][l.zone].splice(l.index,1);
+    moved.controller=toSide;
+    if("faceUp" in opts)moved.faceUp=opts.faceUp;
+    if("set" in opts)moved.set=opts.set;
+    if("fromExtra" in opts)moved.fromExtra=opts.fromExtra;
+    if("fusionSummoned" in opts)moved.fusionSummoned=opts.fusionSummoned;
+    this.s.zones[toSide][toZone].push(moved);
+    this.validateUniqueState();
+    return moved;
   }
   shuffleToDeck(uid, side=null){
     const l=this.zoneOf(uid); if(!l)return;
@@ -113,6 +213,7 @@ class Duel {
       if(!z.deck.length){this.win(this.opp(side),"デッキ切れ");return;}
       z.hand.push(z.deck.shift());
     }
+    this.validateUniqueState();
     if(doLog)this.log(`${side==="player"?"自分":"CPU"}が${n}枚ドロー。`);
   }
   used(side,key){return !!this.s.once[side][key];}
@@ -174,6 +275,7 @@ class Duel {
     }
 
     await this.step(`CHAIN ${chain.length} → 逆順解決`,520);
+    this.s.resolvingChain=true;
 
     for(let i=chain.length-1;i>=0;i--){
       const link=chain[i];
@@ -185,11 +287,16 @@ class Duel {
       this.log(`CL${i+1}《${link.label}》を解決。`);
       await this.step(`CL${i+1}：${link.label} 解決`,500);
       await link.effect(link);
-      if(link.side==="cpu" && link.meta.spellTrap) await this.worldSpellReaction();
+      if(link.side==="cpu" && link.meta.spellTrap){
+        this.deferAfterChain("worldSpellReaction",()=>this.worldSpellReaction());
+      }
     }
 
+    this.s.resolvingChain=false;
     const initialResolved=!initialLink.negated;
     this.s.chain=parentChain||[];
+    this.validateUniqueState();
+    await this.flushPostChain();
     this.render();
     return initialResolved;
   }
@@ -370,7 +477,7 @@ class Duel {
 
     // Rulkallos.
     const rulk=z.field.find(c=>c.id==="rulk");
-    if(rulk && !this.used("cpu","rulk2") && target.meta.specialSummonEffect){
+    if(target.side==="player" && rulk && !this.used("cpu","rulk2") && target.meta.specialSummonEffect){
       this.mark("cpu","rulk2");
       return this.chainLink("cpu","ルルカロス②",{monsterEffect:true,sourceId:"rulk",sourceUid:rulk.uid},async()=>{
         this.negateLink(target,"ルルカロス");
@@ -382,7 +489,7 @@ class Duel {
     // Sulliek only targets a monster effect whose source is/was on field in this simulator.
     const sulliek=z.field.find(c=>c.id==="sulliek"&&c.set);
     const tear=z.field.find(c=>["reino","scheiren","havnis","merrli","kit","rulk"].includes(c.id));
-    if(sulliek && tear && !this.used("cpu","sulliek1") && target.meta.monsterEffect && target.meta.sourceZone!=="hand"){
+    if(target.side==="player" && sulliek && tear && !this.used("cpu","sulliek1") && target.meta.monsterEffect && target.meta.sourceZone!=="hand"){
       this.mark("cpu","sulliek1");
       return this.chainLink("cpu","壱世壊に奏でる哀唱",{spellTrap:true,sourceId:"sulliek",sourceUid:sulliek.uid},async()=>{
         const tl=this.zoneOf(tear.uid);if(tl){this.move(tear.uid,tl.side,"grave");await this.onSentByEffect(tear,"cpu");}
@@ -393,7 +500,7 @@ class Duel {
     // Herald can answer monster effects including Ash / Maxx "C".
     const herald=z.hand.find(c=>c.id==="herald");
     const fairy=z.hand.find(c=>c.uid!==herald?.uid && FAIRIES.includes(c.id));
-    if(herald&&fairy&&(target.meta.monsterEffect||target.meta.highImpact)){
+    if(target.side==="player" && herald&&fairy&&(target.meta.monsterEffect||target.meta.highImpact)){
       this.move(herald.uid,"cpu","grave");
       this.move(fairy.uid,"cpu","grave");
       return this.chainLink("cpu","朱光の宣告者",
@@ -416,7 +523,7 @@ class Duel {
     }
 
     // Ishizu grave shuffler as a real chain link.
-    if(target.meta.usesGrave){
+    if(target.side==="player" && target.meta.usesGrave){
       const sh=z.grave.find(c=>ISHIZU_SHUFFLERS.includes(c.id));
       if(sh){
         this.move(sh.uid,"cpu","banished");
@@ -468,7 +575,7 @@ class Duel {
   playerActions(c,zone){
     const out=[];
     if(zone==="hand"){
-      if(isHero(c)&&this.s.phase==="MAIN1"&&this.s.normal.player>0)out.push({label:"通常召喚",go:()=>this.normalHero(c)});
+      if(isHero(c)&&this.s.phase==="MAIN1"&&this.s.normal.player>0&&this.monsterZoneFree("player"))out.push({label:"通常召喚",go:()=>this.normalHero(c)});
       if(isHero(c)&&this.validHeroMaterial(c,"cpu"))out.push({label:"継承融合",go:()=>this.heroFusion(c,"player")});
       if(c.id==="record")out.push({label:"レコード① 発動",go:()=>this.record(c)});
       if(c.id==="world"&&!this.s.zones.player.field.some(x=>x.id==="world"))out.push({label:"継承世界 発動",go:()=>this.world(c)});
@@ -495,8 +602,10 @@ class Duel {
   }
 
   async normalHero(c){
+    if(!this.monsterZoneFree("player")){this.log("モンスターゾーンが空いていない。");return;}
+    const moved=this.move(c.uid,"player","field",{faceUp:true});
+    if(!moved)return;
     this.s.normal.player--;
-    this.move(c.uid,"player","field",{faceUp:true});
     this.log(`${cardName(c)}を通常召喚。`);
     await this.heroOnSummon(c);
   }
@@ -508,12 +617,19 @@ class Duel {
       this.mark("player",key);
       if(c.id==="ceres"){
         const targets=this.s.zones.player.deck.filter(isRem);
-        const t=await chooseCard("墓地へ送るレムナリア",targets); if(t)this.move(t.uid,"player","grave");
+        const t=await chooseDistinctCard(
+          "セレス①：デッキから墓地へ送る「レムナリア」カード",
+          targets
+        );
+        if(t){
+          this.move(t.uid,"player","grave");
+          this.log(`セレス①：${cardName(t)}をデッキから墓地へ送った。`);
+        }
       } else {
         const targets=c.id==="fia"
           ? this.s.zones.player.deck.filter(x=>["record","inherit","world","recall","chronicle","reject","resonance"].includes(x.id))
           : this.s.zones.player.deck.filter(isRem);
-        const t=await chooseCard("手札に加えるカード",targets); if(t)this.move(t.uid,"player","hand");
+        const t=await chooseDistinctCard("手札に加えるカード",targets); if(t)this.move(t.uid,"player","hand");
       }
     });
   }
@@ -574,7 +690,11 @@ class Duel {
     const z=this.s.zones[side], key=hero.id+"3"; if(this.used(side,key))return;
     this.mark(side,key);
     if(hero.id==="rina"){
-      const t=z.deck.find(c=>isHero(c)&&c.id!=="rina");if(t){this.move(t.uid,side,"field",{faceUp:true});await this.heroOnSummon(t);}
+      const t=z.deck.find(c=>isHero(c)&&c.id!=="rina");
+      if(t&&this.monsterZoneFree(side)){
+        const moved=this.move(t.uid,side,"field",{faceUp:true});
+        if(moved){await this.afterSpecialSummon(side,1);await this.heroOnSummon(t);}
+      }
     } else if(hero.id==="fia"){
       const p=[...z.grave,...z.banished].find(c=>["record","inherit","world","recall","chronicle","reject","resonance"].includes(c.id));if(p)this.move(p.uid,side,"hand");
     } else if(hero.id==="ceres"){
@@ -634,6 +754,7 @@ class Duel {
     });
   }
   async recall(c){
+    if(!this.monsterZoneFree("player")){this.log("リコール：モンスターゾーンに空きがない。");return;}
     const pool=[...this.s.zones.player.grave,...this.s.zones.player.banished].filter(isHero);if(!pool.length)return;
     const t=await chooseCard("特殊召喚するレムナリア",pool);if(!t)return;
     await this.activate("player","レムナリア・リコール①",{spellTrap:true,specialSummonEffect:true,fromDeckOrGraveSpecial:true,usesGrave:true,sourceId:"recall",sourceUid:c.uid,sourceZone:"hand"},async()=>{
@@ -749,11 +870,13 @@ class Duel {
   }
 
   async checkPlayerTurnZero(cpuCard){
+    if(this.deferAfterChain(`turnzero_${cpuCard.uid}`,()=>this.checkPlayerTurnZero(cpuCard)))return;
     if(cpuCard.fromExtra){
       const noel=this.s.zones.player.hand.find(c=>c.id==="noel");
-      if(noel&&!this.used("player","noel1")&&await confirmUI("ノエル①を発動する？")){
-        this.mark("player","noel1");this.move(noel.uid,"player","field",{faceUp:true});
-        await this.heroFusion(noel,"player",true);
+      if(noel&&this.monsterZoneFree("player")&&!this.used("player","noel1")&&await confirmUI("ノエル①を発動する？")){
+        this.mark("player","noel1");
+        const moved=this.move(noel.uid,"player","field",{faceUp:true});
+        if(moved){await this.afterSpecialSummon("player",1);await this.heroFusion(noel,"player",true);}
       }
     }
     const res=this.s.zones.player.hand.find(c=>c.id==="resonance");
@@ -761,6 +884,7 @@ class Duel {
   }
 
   async worldSummonReaction(){
+    if(this.deferAfterChain("worldSummonReaction",()=>this.worldSummonReaction()))return;
     const w=this.s.zones.player.field.find(c=>c.id==="world");
     if(!w||this.used("player","world2"))return;
     this.mark("player","world2");
@@ -784,7 +908,7 @@ class Duel {
   async cpuScream(){
     const z=this.s.zones.cpu;
     const sc=z.hand.find(c=>c.id==="scream");
-    if(!sc || z.field.some(c=>c.id==="scream")) return false;
+    if(!sc || z.field.some(c=>c.id==="scream") || !this.backrowZoneFree("cpu")) return false;
     await this.activate("cpu","壱世壊を劈く弦声 発動",{spellTrap:true},async()=>{
       this.move(sc.uid,"cpu","field",{faceUp:true});
       await this.step("CPU：スクリームを表側で発動",700);
@@ -793,6 +917,7 @@ class Duel {
   }
 
   async cpuScreamTrigger(){
+    if(this.deferAfterChain("cpuScreamTrigger",()=>this.cpuScreamTrigger()))return false;
     const z=this.s.zones.cpu;
     const sc=z.field.find(c=>c.id==="scream");
     const tear=z.field.find(c=>["reino","scheiren","havnis","merrli","kit","rulk","kaleido"].includes(c.id));
@@ -808,7 +933,7 @@ class Duel {
     const z=this.s.zones.cpu;
     const inst=z.hand.find(c=>c.id==="instant");
     const kit=z.extra.find(c=>c.id==="kit");
-    if(!inst || !kit || this.s.lp.cpu<=1000) return false;
+    if(!inst || !kit || this.s.lp.cpu<=1000 || !this.monsterZoneFree("cpu")) return false;
     await this.activate("cpu","簡易融合",{spellTrap:true,specialSummonEffect:true,highImpact:true,sourceId:"instant",sourceUid:inst.uid,sourceZone:"hand"},async()=>{
       this.damage("cpu",1000);
       this.move(inst.uid,"cpu","grave");
@@ -828,7 +953,7 @@ class Duel {
   async cpuIshizuHandStarter(){
     const z=this.s.zones.cpu;
     const sh=z.hand.find(c=>["keldo","mudora"].includes(c.id));
-    if(!sh) return false;
+    if(!sh || !this.monsterZoneFree("cpu")) return false;
     const cost=z.hand.find(c=>c.uid!==sh.uid && FAIRIES.includes(c.id));
     if(!cost) return false;
 
@@ -861,7 +986,7 @@ class Duel {
 
   async cpuMerrliNormal(){
     const z=this.s.zones.cpu;
-    if(this.s.normal.cpu<=0) return false;
+    if(this.s.normal.cpu<=0 || !this.monsterZoneFree("cpu")) return false;
     const m=z.hand.find(c=>c.id==="merrli");
     if(!m) return false;
 
@@ -884,7 +1009,7 @@ class Duel {
 
   async cpuFallbackNormal(){
     const z=this.s.zones.cpu;
-    if(this.s.normal.cpu<=0) return false;
+    if(this.s.normal.cpu<=0 || !this.monsterZoneFree("cpu")) return false;
     // If Scream is face-up, any Tear normal summon can turn it into 3 mills.
     const c=z.hand.find(x=>["havnis","scheiren"].includes(x.id));
     if(!c) return false;
@@ -993,7 +1118,7 @@ class Duel {
   }
 
   async cpuReino(){
-    const z=this.s.zones.cpu,r=z.hand.find(c=>c.id==="reino");if(!r||this.s.normal.cpu<=0)return false;
+    const z=this.s.zones.cpu,r=z.hand.find(c=>c.id==="reino");if(!r||this.s.normal.cpu<=0||!this.monsterZoneFree("cpu"))return false;
     this.s.normal.cpu--;this.move(r.uid,"cpu","field",{faceUp:true});
     this.log("CPU：ティアラメンツ・レイノハートを通常召喚。");
     await this.step("CPU：レイノハート通常召喚",950);
@@ -1007,7 +1132,7 @@ class Duel {
   }
 
   async cpuScheiren(){
-    const z=this.s.zones.cpu,s=z.hand.find(c=>c.id==="scheiren");if(!s)return false;
+    const z=this.s.zones.cpu,s=z.hand.find(c=>c.id==="scheiren");if(!s||!this.monsterZoneFree("cpu"))return false;
     const d=z.hand.find(c=>c.uid!==s.uid && C[c.id]?.kind==="monster");if(!d)return false;
     await this.activate("cpu","シェイレーン①",{monsterEffect:true,specialSummonEffect:true,sendsDeckToGY:true,highImpact:true,sourceId:"scheiren",sourceUid:s.uid,sourceZone:"hand"},async()=>{
       this.move(s.uid,"cpu","field",{faceUp:true});
@@ -1228,13 +1353,29 @@ function chooseCard(title,cards,reveal=false){
     const box=$("#choiceList");box.innerHTML="";
     cards.forEach((c,i)=>{
       const b=document.createElement("button");b.className="choiceCard";
-      b.innerHTML=`<b>${escapeHtml(cardName(c))}</b><small>${escapeHtml(C[c.id]?.role||"")}</small>`;
+      b.innerHTML=`<b>${escapeHtml(cardName(c))}</b><small>${escapeHtml(kindLabel(c))} / ${escapeHtml(C[c.id]?.role||"")}</small>`;
       b.onclick=()=>{ $("#choiceOverlay").classList.remove("show");const r=choiceResolver;choiceResolver=null;r(i); };
       box.appendChild(b);
     });
     $("#choiceOverlay").classList.add("show");
   });
 }
+async function chooseDistinctCard(title,cards){
+  if(!cards.length)return null;
+  const groups=[];
+  const seen=new Set();
+  for(const c of cards){
+    if(seen.has(c.id))continue;
+    seen.add(c.id);
+    groups.push(c);
+  }
+  const labels=groups.map(c=>`${cardName(c)}　[${kindLabel(c)}]`);
+  const i=await chooseOption(title,labels);
+  if(i<0)return null;
+  const selectedId=groups[i].id;
+  return cards.find(c=>c.id===selectedId)||null;
+}
+
 async function chooseMany(title,cards,max){
   const pool=[...cards],out=[];
   while(pool.length&&out.length<max){
@@ -1263,14 +1404,53 @@ function renderCard(c,zone,side){
 function renderZone(id,cards,zone,side){
   const el=$(id);if(!el)return;el.innerHTML="";cards.forEach(c=>el.appendChild(renderCard(c,zone,side)));
 }
+function renderFixedSlots(id,cards,side,count=5){
+  const el=$(id);if(!el)return;
+  el.innerHTML="";
+  const shown=cards.slice(0,count);
+  for(let i=0;i<count;i++){
+    const slot=document.createElement("div");
+    slot.className="duelSlot";
+    slot.dataset.slot=i+1;
+    if(shown[i])slot.appendChild(renderCard(shown[i],"field",side));
+    else slot.innerHTML=`<span>${i+1}</span>`;
+    el.appendChild(slot);
+  }
+}
+function renderFieldSpell(id,card,side){
+  const el=$(id);if(!el)return;
+  el.innerHTML="";
+  const slot=document.createElement("div");
+  slot.className="duelSlot fieldSpellSlot";
+  if(card)slot.appendChild(renderCard(card,"field",side));
+  else slot.innerHTML="<span>FIELD</span>";
+  el.appendChild(slot);
+}
 function renderAll(){
   if(!game)return;const s=game.s;
-  renderZone("#cpuField",s.zones.cpu.field,"field","cpu");
-  renderZone("#playerField",s.zones.player.field,"field","player");
+  game.validateUniqueState();
+
+  const cpuMon=s.zones.cpu.field.filter(isMonsterCard);
+  const cpuBack=s.zones.cpu.field.filter(c=>isSpellTrapCard(c)&&!isFieldSpell(c));
+  const cpuFs=s.zones.cpu.field.find(isFieldSpell)||null;
+  const pMon=s.zones.player.field.filter(isMonsterCard);
+  const pBack=s.zones.player.field.filter(c=>isSpellTrapCard(c)&&!isFieldSpell(c));
+  const pFs=s.zones.player.field.find(isFieldSpell)||null;
+
+  renderFixedSlots("#cpuField",cpuMon,"cpu",5);
+  renderFixedSlots("#cpuBackrow",cpuBack,"cpu",5);
+  renderFieldSpell("#cpuFieldSpell",cpuFs,"cpu");
+  renderFixedSlots("#playerField",pMon,"player",5);
+  renderFixedSlots("#playerBackrow",pBack,"player",5);
+  renderFieldSpell("#playerFieldSpell",pFs,"player");
   renderZone("#hand",s.zones.player.hand,"hand","player");
   const tab=$("#resourceTabs").dataset.tab||"grave";
   renderZone("#resourceCards",s.zones.player[tab],tab,"player");
   $("#cpuLP").textContent=s.lp.cpu;$("#playerLP").textContent=s.lp.player;
+  const pm=document.querySelector("#playerMZCount");if(pm)pm.textContent=`${pMon.length}/5`;
+  const pb=document.querySelector("#playerSTCount");if(pb)pb.textContent=`${pBack.length}/5`;
+  const cm=document.querySelector("#cpuMZCount");if(cm)cm.textContent=`${cpuMon.length}/5`;
+  const cb=document.querySelector("#cpuSTCount");if(cb)cb.textContent=`${cpuBack.length}/5`;
   $("#turnText").textContent=`TURN ${s.turn} / ${s.turnPlayer==="player"?"YOU":"CPU"} / ${s.phase}`;
   const cs=document.querySelector("#chainStrip");
   if(cs){
